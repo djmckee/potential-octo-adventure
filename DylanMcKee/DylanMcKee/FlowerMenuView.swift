@@ -35,13 +35,15 @@ class FlowerMenuView: UIView {
         let buttonSpacing:CGFloat = ((frame.size.width / 320.0) * 10.0)
         
         // calculate top, middle, and bottom row x and y positions (these were created from the paper diagram, but seem to work).
-        let innerXRight:CGFloat = (self.center.x + (buttonWidth / 2) + (buttonSpacing / 2))
-        let outerXRight:CGFloat = (self.center.y + buttonWidth + buttonSpacing)
-        let innerXLeft:CGFloat = (self.center.x - (buttonWidth / 2) - (buttonSpacing / 2))
-        let outerXLeft:CGFloat = (self.center.y - buttonWidth - buttonSpacing)
-        let topY:CGFloat = (self.center.y + buttonWidth + buttonSpacing)
+        let entireButtonSize:CGFloat = (buttonWidth + buttonSpacing)
+        let halfButtonSize:CGFloat = ((buttonWidth / 2) + (buttonSpacing / 2))
+        let innerXRight:CGFloat = (self.center.x + halfButtonSize)
+        let outerXRight:CGFloat = (self.center.y + entireButtonSize)
+        let innerXLeft:CGFloat = (self.center.x - halfButtonSize)
+        let outerXLeft:CGFloat = (self.center.y - entireButtonSize)
+        let topY:CGFloat = (self.center.y + entireButtonSize)
         let midY:CGFloat = self.center.y
-        let bottomY:CGFloat = (self.center.y - buttonWidth - buttonSpacing)
+        let bottomY:CGFloat = (self.center.y - entireButtonSize)
         
         // loop 6 times, so we can create each outer 'flower'.
         for i in 0...5 {
@@ -73,8 +75,10 @@ class FlowerMenuView: UIView {
             switch (i) {
                 case 0, 1:
                     y = topY
+                
                 case 2, 3:
                     y = midY
+                
                 case 4, 5:
                     y = bottomY
                 
