@@ -13,7 +13,7 @@ class InitialView: UIView {
     // instance reference to the pulsating label so that we can un-hide it safely on a timer...
     var slideToBeginLabel:PulsatingLabel!
 
-    func commonInit() {
+    private func commonInit() {
         // we need a clear background colour.
         self.backgroundColor = UIColor.clearColor()
         

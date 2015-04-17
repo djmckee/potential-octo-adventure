@@ -47,13 +47,17 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         // add initial view to the scrollView
         scrollView.addSubview(initialView)
         
-        
-        // and programatically zoom the scrollview to the 'initial' view so the user can 'unlock' the app by sliding left... (because this happens on launch it really shouldn't be animated)
-        scrollView.scrollRectToVisible(CGRectMake(320, 0, 320, 0), animated: false)
+        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("scrollToSecond"), userInfo: nil, repeats: false)
 
         // okay, the scrollRectToVisible above has set-up the scrollview, make delegate aware...
         initialScrollSetup = true
         
+    }
+    
+    func scrollToSecond(){
+        // and programatically zoom the scrollview to the 'initial' view so the user can 'unlock' the app by sliding left... (because this happens on launch it really shouldn't be animated)
+        scrollView.scrollRectToVisible(secondScrollViewPaneFrame, animated: false)
+
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -102,17 +106,17 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     
     
     // a function to be called when the user scrolls into the first pane!
-    func initialiseFirstPane() {
+    private func initialiseFirstPane() {
         
         // sort out the instructional label first...
         // add rounded corners!
         instructionalLabel.layer.masksToBounds = true
         instructionalLabel.layer.cornerRadius = 5.0
         
-        // show the instructional label for 5 seconds
+        // show the instructional label for 7 seconds
         instructionalLabel.hidden = false
         
-        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("hideIntroLabel"), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(7.0, target: self, selector: Selector("hideIntroLabel"), userInfo: nil, repeats: false)
         
         
         // jump completely into first pane (with animation).
@@ -121,6 +125,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         // stop the scrollview scrolling again (user can only 'unlock' the app once!)
         scrollView.scrollEnabled = false
     }
+    
     
     func hideIntroLabel() {
         // hide the instructional intro label in a smooth fade animation
