@@ -19,6 +19,12 @@ class FlowerMenuView: UIView {
     // a delegate, which must implement our FlowerMenuDelegate protocol, for callbacks when menu items are selected!
     var delegate:protocol<FlowerMenuDelegate>?
     
+    // an array to conveniently store references to our buttons in
+    var buttonArray:[FlowerMenuTextButton]?
+    
+    // a conveneience reference to our main central button (of which there's only one)
+    var centerButton:FlowerMenuImageButton?
+    
     init(frame: CGRect, buttonNames: [String], middleButtonImage: UIImage) {
         // call super
         super.init(frame: frame)
@@ -88,16 +94,20 @@ class FlowerMenuView: UIView {
             }
             
             // initialise a frame for the button based off what the switch statement has decided for X and Y coordinates.
-            var buttonFrame = CGRectMake(x, y, buttonWidth, buttonWidth)
+            // subtract the extra half button size's necessary to make these genuine x and y origin coordinates - rather than simply center coordinates (like what we've calculated so far!)
+            var buttonFrame = CGRectMake((x - buttonWidth / 2), (y - buttonWidth/2), buttonWidth, buttonWidth)
             
             // get title from array (WILL be there, since bounds checking's been done previously).
             var buttonTitle:String = buttonNames[i]
             
             // initialise our button
+            var newButton:FlowerMenuTextButton = FlowerMenuTextButton()
             
             // add to array so we can keep a reference of it conveniently
-            
+            buttonArray?.append(newButton)
+
             // and add to frame
+            addSubview(newButton)
         }
         
         
