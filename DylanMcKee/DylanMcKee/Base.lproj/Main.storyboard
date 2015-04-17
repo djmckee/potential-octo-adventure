@@ -19,15 +19,32 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DylanQuayside" translatesAutoresizingMaskIntoConstraints="NO" id="prE-4T-reG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zO-aR-t0O">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zO-aR-t0O">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="Hlz-kY-uyW"/>
                                 </connections>
                             </scrollView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to begin, drag my head into an area that you'd like to visit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOt-JX-wG2">
+                                <rect key="frame" x="174" y="218" width="252" height="165"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="bpx-FO-739"/>
+                                    <constraint firstAttribute="width" constant="252" id="mcm-jP-qxN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="28"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="lOt-JX-wG2" secondAttribute="centerX" id="2sk-h7-k6A"/>
                             <constraint firstItem="2zO-aR-t0O" firstAttribute="top" secondItem="prE-4T-reG" secondAttribute="top" id="9ad-2x-4ii"/>
                             <constraint firstItem="prE-4T-reG" firstAttribute="leading" secondItem="2zO-aR-t0O" secondAttribute="leading" id="JdS-ta-xrc"/>
                             <constraint firstAttribute="height" secondItem="2zO-aR-t0O" secondAttribute="height" id="O4V-0h-j4R"/>
@@ -35,10 +52,13 @@
                             <constraint firstAttribute="width" secondItem="2zO-aR-t0O" secondAttribute="width" id="lFi-Hf-Jpk"/>
                             <constraint firstItem="2zO-aR-t0O" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="mdf-Lm-YR0"/>
                             <constraint firstAttribute="width" secondItem="prE-4T-reG" secondAttribute="width" id="ngl-bD-OCr"/>
+                            <constraint firstAttribute="centerY" secondItem="lOt-JX-wG2" secondAttribute="centerY" constant="-0.5" id="niD-hL-7Rp"/>
                             <constraint firstAttribute="height" secondItem="prE-4T-reG" secondAttribute="height" id="tKy-of-7Gh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImageView" destination="prE-4T-reG" id="ReM-xI-gDz"/>
+                        <outlet property="instructionalLabel" destination="lOt-JX-wG2" id="KSh-Pg-0PB"/>
                         <outlet property="scrollView" destination="2zO-aR-t0O" id="crX-vk-ghQ"/>
                     </connections>
                 </viewController>
@@ -47,6 +67,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DylanQuayside" width="1632" height="1224"/>
+        <image name="DylanQuayside" width="1391" height="1224"/>
     </resources>
 </document>

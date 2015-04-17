@@ -23,15 +23,14 @@ class PulsatingLabel: UILabel {
         
         // set a white font colour
         self.textColor = UIColor.whiteColor()
+                
+        self.alpha = 0.5
         
         // begin animating ourselves, constantly.
-        UIView.animateKeyframesWithDuration(2.0, delay: 1.0, options: UIViewKeyframeAnimationOptions.Repeat, animations: { () -> Void in
+        UIView.animateKeyframesWithDuration(2.0, delay: 3.0, options: (UIViewKeyframeAnimationOptions.Repeat | UIViewKeyframeAnimationOptions.Autoreverse), animations: { () -> Void in
             // fade out (then fade back in on completion.
-            self.alpha = 0.0
-            }, completion: { (b) -> Void in
-                // fade out completed, fade back in...
-                self.alpha = 1.0
-            })
+            self.alpha = 1.0
+            }, completion: nil)
         
         
     }

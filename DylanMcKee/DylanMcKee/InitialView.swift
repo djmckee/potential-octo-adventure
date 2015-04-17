@@ -9,21 +9,63 @@
 import UIKit
 
 class InitialView: UIView {
+    
+    // instance reference to the pulsating label so that we can un-hide it safely on a timer...
+    var slideToBeginLabel:PulsatingLabel!
 
     func commonInit() {
+        // we need a clear background colour.
+        self.backgroundColor = UIColor.clearColor()
+        
         // add our pulsating label and other labels (feat. animations).
+        
+        let helloLabel:UILabel = UILabel(frame: CGRectMake(0, 40, self.frame.size.width, 55))
+        helloLabel.text = "Hello."
+        helloLabel.textColor = UIColor.whiteColor();
+        helloLabel.textAlignment = NSTextAlignment.Center
+        helloLabel.font = UIFont(name: "HelveticaNeue-UltraLight", size: 50)
+        helloLabel.alpha = 0.0
+        self.addSubview(helloLabel)
+        
+        UIView.animateWithDuration(1.5, animations: { () -> Void in
+            // fade in initial hello label
+            helloLabel.alpha =  1.0
+        })
+        
+        let nameLabel:UILabel = UILabel(frame: CGRectMake(0, (helloLabel.frame.origin.y + helloLabel.frame.size.height), self.frame.size.width, 100))
+        nameLabel.text = "I'm Dylan."
+        nameLabel.textColor = UIColor.whiteColor();
+        nameLabel.textAlignment = NSTextAlignment.Center
+        nameLabel.font = UIFont(name: "HelveticaNeue-UltraLight", size: 50)
+        nameLabel.alpha = 0.0
+        self.addSubview(nameLabel)
+        
+        UIView.animateWithDuration(1.5, delay: 1.5, options: nil, animations: { () -> Void in
+            //fade in name label
+            nameLabel.alpha = 1.0
+        }, completion: nil)
         
         // compute location for the 'slide to begin' label - we want it the same width of the view, 50px in height, and 50px from the bottom
         let slideLabelHeight:CGFloat = 100.0
         let slideToBeginRect:CGRect = CGRectMake(0, (self.frame.size.height - slideLabelHeight), self.frame.size.width, slideLabelHeight)
         
-        let slideToBeginLabel:PulsatingLabel = PulsatingLabel(frame: slideToBeginRect)
+        slideToBeginLabel = PulsatingLabel(frame: slideToBeginRect)
         
         slideToBeginLabel.text = "slide to begin >"
+        
+        // hide the label for an initial 3 seconds so other labels can load first...
+        slideToBeginLabel.hidden = true
+        
+        
+        NSTimer.scheduledTimerWithTimeInterval(3.5, target: self, selector: Selector("unhideLabel"), userInfo: nil, repeats: false)
         
         // add it to the view
         self.addSubview(slideToBeginLabel)
         
+    }
+    
+    func unhideLabel(){
+        slideToBeginLabel.hidden = false
     }
     
     override init(frame: CGRect) {

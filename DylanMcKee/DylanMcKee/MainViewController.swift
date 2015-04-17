@@ -12,31 +12,121 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     
     
     @IBOutlet weak var scrollView:UIScrollView!
+    @IBOutlet weak var backgroundImageView:UIImageView!
+    @IBOutlet weak var instructionalLabel:UILabel!
     
     // initialView and menuView will be created and managed programatically, not using the storyboard, from their relevant subclasses and respective NIBs.
     var initialView:UIView!
     var menuView:InitialView!
+    
+    var firstScrollViewPaneFrame:CGRect!
+    var secondScrollViewPaneFrame:CGRect!
+    
+    // a boolean to indicate that the scrollView has been setup (to stop permenant affixing to the first pane due to delegate values being called before programatic scrolling has taken place properly)
+    var initialScrollSetup:Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // set scroll view content size to be same height as the view, but twice the width (for lock screen style sliding)
-        scrollView.contentSize = CGSizeMake((self.view.frame.size.width * 2.0), self.view.frame.size.height)
-
-        // initialise the initialView,
-        // set the 'initial' view's frame to the right hand side of the scroll view, with a width set to the current view size
-        initialView = InitialView(frame: CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height))
-            
-        initialView.backgroundColor = UIColor.blueColor()
+        // scrolling should be swift and merciless
+        scrollView.decelerationRate = UIScrollViewDecelerationRateFast
         
+        // set scroll view content size to be same height as the view, but twice the width (for lock screen style sliding)
+        scrollView.contentSize = CGSizeMake((self.view.bounds.size.width * 2.0), self.view.bounds.size.height)
+
+        // calculate the scroll view 'pane' frames...
+        firstScrollViewPaneFrame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)
+        secondScrollViewPaneFrame = CGRectMake(self.view.bounds.size.width, 0, self.view.bounds.size.width, self.view.bounds.size.height)
+        
+        
+        // initialise the initialView,
+        
+        initialView = InitialView(frame: secondScrollViewPaneFrame)
+                    
         // add initial view to the scrollView
         scrollView.addSubview(initialView)
         
         
         // and programatically zoom the scrollview to the 'initial' view so the user can 'unlock' the app by sliding left... (because this happens on launch it really shouldn't be animated)
-        scrollView.scrollRectToVisible(initialView.frame, animated: false)
+        scrollView.scrollRectToVisible(CGRectMake(320, 0, 320, 0), animated: false)
+
+        // okay, the scrollRectToVisible above has set-up the scrollview, make delegate aware...
+        initialScrollSetup = true
         
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        // if we're not set-up yet, don't take notice of this event
+        if !initialScrollSetup {
+            return;
+        }
+        
+        // see if the scrolling was over 50% towards the first 'pane' - if so snap to the first pane, if not, snap back to the second 'pane' - we don't allow 'floating' half way between the two!
+        
+        println(scrollView.bounds)
+        
+        let halfwayPanePoint = scrollView.contentSize.width - (firstScrollViewPaneFrame.size.width)
+        
+        let currentScrollX = scrollView.bounds.origin.x
+        
+        // the alpha of the background image should be proportional to the amount that it is scrolled to the left pane - when fully in the left pane, alpha drops to 0.5, when fully in the right pane, alpha is at 1.0
+        var computedAlpha:CGFloat
+        
+        computedAlpha = (currentScrollX / firstScrollViewPaneFrame.size.width)
+        
+        // has a minimum of 50% alpha - perform a bounds check!
+        if computedAlpha < 0.5 {
+            computedAlpha = 0.5
+        }
+        
+        // set computed alpha
+        backgroundImageView.alpha = computedAlpha
+        
+        
+        if currentScrollX < halfwayPanePoint {
+            // user is in first pane! snap to it
+            println("in first pane!")
+            // call relevant method to setup pane.
+            initialiseFirstPane()
+
+            
+        } else {
+            // snap back to the second pane!
+            scrollView.scrollRectToVisible(secondScrollViewPaneFrame, animated: true)
+
+        }
+        
+        
+    }
+    
+    
+    // a function to be called when the user scrolls into the first pane!
+    func initialiseFirstPane() {
+        
+        // sort out the instructional label first...
+        // add rounded corners!
+        instructionalLabel.layer.masksToBounds = true
+        instructionalLabel.layer.cornerRadius = 5.0
+        
+        // show the instructional label for 5 seconds
+        instructionalLabel.hidden = false
+        
+        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("hideIntroLabel"), userInfo: nil, repeats: false)
+        
+        
+        // jump completely into first pane (with animation).
+        scrollView.scrollRectToVisible(firstScrollViewPaneFrame, animated: true)
+        
+        // stop the scrollview scrolling again (user can only 'unlock' the app once!)
+        scrollView.scrollEnabled = false
+    }
+    
+    func hideIntroLabel() {
+        // hide the instructional intro label in a smooth fade animation
+        UIView.animateWithDuration(1.0, animations: { () -> Void in
+            self.instructionalLabel.alpha = 0.0
+        })
     }
 
     override func didReceiveMemoryWarning() {
