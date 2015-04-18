@@ -19,6 +19,7 @@
 		BA9423591ADDB97A001B39E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9423581ADDB97A001B39E3 /* Images.xcassets */; };
 		BA94235C1ADDB97A001B39E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA94235A1ADDB97A001B39E3 /* LaunchScreen.xib */; };
 		BA9423681ADDB97A001B39E3 /* DylanMcKeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9423671ADDB97A001B39E3 /* DylanMcKeeTests.swift */; };
+		BAF4F37C1AE242320012EFF8 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF4F37B1AE242320012EFF8 /* MainMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		BA9423611ADDB97A001B39E3 /* DylanMcKeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DylanMcKeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9423661ADDB97A001B39E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA9423671ADDB97A001B39E3 /* DylanMcKeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DylanMcKeeTests.swift; sourceTree = "<group>"; };
+		BAF4F37B1AE242320012EFF8 /* MainMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				BA94235A1ADDB97A001B39E3 /* LaunchScreen.xib */,
 				BA40F92D1AE19AD20005C427 /* InitialView.swift */,
+				BAF4F37B1AE242320012EFF8 /* MainMenuView.swift */,
 				BA40F9311AE19B250005C427 /* PulsatingLabel.swift */,
 				BA40F9331AE1C0880005C427 /* FlowerMenuView.swift */,
 				BA40F9381AE1D0CA0005C427 /* FlowerMenuRoundedButton.swift */,
@@ -257,6 +260,7 @@
 				BA40F92E1AE19AD20005C427 /* InitialView.swift in Sources */,
 				BA40F93D1AE1D1AB0005C427 /* FlowerMenuImageButton.swift in Sources */,
 				BA40F9391AE1D0CA0005C427 /* FlowerMenuRoundedButton.swift in Sources */,
+				BAF4F37C1AE242320012EFF8 /* MainMenuView.swift in Sources */,
 				BA40F93B1AE1D1940005C427 /* FlowerMenuTextButton.swift in Sources */,
 				BA9423541ADDB97A001B39E3 /* MainViewController.swift in Sources */,
 				BA40F9321AE19B250005C427 /* PulsatingLabel.swift in Sources */,

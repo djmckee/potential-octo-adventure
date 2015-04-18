@@ -41,15 +41,16 @@ class FlowerMenuView: UIView {
         let buttonSpacing:CGFloat = ((frame.size.width / 320.0) * 10.0)
         
         // calculate top, middle, and bottom row x and y positions (these were created from the paper diagram, but seem to work).
+        let midY:CGFloat = self.center.y
+        let midX:CGFloat = self.center.x
         let entireButtonSize:CGFloat = (buttonWidth + buttonSpacing)
         let halfButtonSize:CGFloat = ((buttonWidth / 2) + (buttonSpacing / 2))
-        let innerXRight:CGFloat = (self.center.x + halfButtonSize)
-        let outerXRight:CGFloat = (self.center.y + entireButtonSize)
-        let innerXLeft:CGFloat = (self.center.x - halfButtonSize)
-        let outerXLeft:CGFloat = (self.center.y - entireButtonSize)
-        let topY:CGFloat = (self.center.y + entireButtonSize)
-        let midY:CGFloat = self.center.y
-        let bottomY:CGFloat = (self.center.y - entireButtonSize)
+        let innerXRight:CGFloat = (midX + halfButtonSize)
+        let outerXRight:CGFloat = (midX + entireButtonSize)
+        let innerXLeft:CGFloat = (midX - halfButtonSize)
+        let outerXLeft:CGFloat = (midX - entireButtonSize)
+        let topY:CGFloat = (midY + entireButtonSize)
+        let bottomY:CGFloat = (midY - entireButtonSize)
         
         // loop 6 times, so we can create each outer 'flower'.
         for i in 0...5 {
@@ -100,8 +101,8 @@ class FlowerMenuView: UIView {
             // get title from array (WILL be there, since bounds checking's been done previously).
             var buttonTitle:String = buttonNames[i]
             
-            // initialise our button
-            var newButton:FlowerMenuTextButton = FlowerMenuTextButton()
+            // initialise our button with the computed frame and the relevant title
+            var newButton:FlowerMenuTextButton = FlowerMenuTextButton(frame: buttonFrame, text: buttonTitle)
             
             // add to array so we can keep a reference of it conveniently
             buttonArray?.append(newButton)
@@ -109,6 +110,8 @@ class FlowerMenuView: UIView {
             // and add to frame
             addSubview(newButton)
         }
+        
+        // now draw the center button
         
         
     }

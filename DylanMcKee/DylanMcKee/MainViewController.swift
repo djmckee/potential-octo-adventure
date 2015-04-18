@@ -16,8 +16,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var instructionalLabel:UILabel!
     
     // initialView and menuView will be created and managed programatically, not using the storyboard, from their relevant subclasses and respective NIBs.
-    var initialView:UIView!
-    var menuView:InitialView!
+    var initialView:InitialView!
+    var menuView:MainMenuView!
     
     var firstScrollViewPaneFrame:CGRect!
     var secondScrollViewPaneFrame:CGRect!
@@ -41,22 +41,30 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         
         
         // initialise the initialView,
-        
         initialView = InitialView(frame: secondScrollViewPaneFrame)
                     
         // add initial view to the scrollView
         scrollView.addSubview(initialView)
         
+        // initialise the menuView...
+        menuView = MainMenuView(frame: firstScrollViewPaneFrame)
+        
+        // and add to the scrollView
+        scrollView.addSubview(menuView)
+        
+        // UIScrollView doesn't like programatically scrolling straight away, do it after a very short delay...
         NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("scrollToSecond"), userInfo: nil, repeats: false)
 
-        // okay, the scrollRectToVisible above has set-up the scrollview, make delegate aware...
-        initialScrollSetup = true
         
     }
     
     func scrollToSecond(){
         // and programatically zoom the scrollview to the 'initial' view so the user can 'unlock' the app by sliding left... (because this happens on launch it really shouldn't be animated)
         scrollView.scrollRectToVisible(secondScrollViewPaneFrame, animated: false)
+        
+        
+        // okay, the scrollRectToVisible above has set-up the scrollview, make delegate aware...
+        initialScrollSetup = true
 
     }
     
