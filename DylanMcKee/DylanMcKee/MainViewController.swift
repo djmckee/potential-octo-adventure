@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDelegate {
     
@@ -153,8 +154,36 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
     // flower menu delegate implementation...
     func flowerMenuSectionSelectedWithName(name:String) {
         println("clicked on " + name)
+        
+        if name == "intro" {
+            // play intro video.
+            playIntroVideo()
+        }
+        
     }
 
+    
+    func playIntroVideo() {
+        // play intro.m4v.
+        
+        // load the file path in...
+        let videoFilePath = NSBundle.mainBundle().pathForResource("intro", ofType: "m4v")
+        let videoPathUrl = NSURL.fileURLWithPath(videoFilePath!)
+        
+        // instantiate a player
+        let videoPlayer = MPMoviePlayerViewController(contentURL: videoPathUrl)
+                
+        // don't repeat!
+        videoPlayer.moviePlayer.repeatMode = .None
+        
+        // and present the player modally over the view...
+        presentMoviePlayerViewControllerAnimated(videoPlayer)
+    }
+    
+    // this view controller should be portrait only!
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
 
 }
 
