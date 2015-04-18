@@ -3,7 +3,7 @@
 //  DylanMcKee
 //
 //  Created by Dylan McKee on 17/04/2015.
-//  Copyright (c) 2015 djmckee. All rights reserved.
+//  Copyright (c) 2015 Dylan McKee. All  rights reserved.
 //
 
 // A UILabel with a pulsating background colour animation, pretty similar in concept to the label on the iOS Lock Screen.

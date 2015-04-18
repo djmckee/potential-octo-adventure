@@ -3,7 +3,7 @@
 //  DylanMcKee
 //
 //  Created by Dylan McKee on 18/04/2015.
-//  Copyright (c) 2015 djmckee. All rights reserved.
+//  Copyright (c) 2015 Dylan McKee. All  rights reserved.
 //
 
 import Foundation

@@ -3,7 +3,7 @@
 //  DylanMcKee
 //
 //  Created by Dylan McKee on 17/04/2015.
-//  Copyright (c) 2015 djmckee. All rights reserved.
+//  Copyright (c) 2015 Dylan McKee. All  rights reserved.
 //
 
 // A menu that draws a central selector button, and 6 outside buttons to be selected. Provides appropriate callback delegate protocol. There's quite a lot of maths behind this that was done quickly on pen and paper, but it seems to work.
