@@ -25,7 +25,7 @@ class MainMenuView: UIView {
         names = names.reverse()
         
         // get the middle button image initialised...
-        let middleImage:UIImage = UIImage(named: "DylanQuayside")!
+        let middleImage:UIImage = UIImage(named: "DylanHead")!
         
         // now initialise our flower menu
         menu = FlowerMenuView(frame: self.frame, buttonNames: names, middleButtonImage: middleImage)

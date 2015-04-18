@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UIScrollViewDelegate {
+class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDelegate {
     
     
     @IBOutlet weak var scrollView:UIScrollView!
@@ -48,6 +48,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         
         // initialise the menuView...
         menuView = MainMenuView(frame: firstScrollViewPaneFrame)
+        
+        // set ourselves as a delegate to the menu view's menu...
+        menuView.menu?.delegate = self
         
         // and add to the scrollView
         scrollView.addSubview(menuView)
@@ -145,6 +148,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // flower menu delegate implementation...
+    func flowerMenuSectionSelectedWithName(name:String) {
+        println("clicked on " + name)
     }
 
 
