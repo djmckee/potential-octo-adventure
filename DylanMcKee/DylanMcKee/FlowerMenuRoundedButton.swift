@@ -30,8 +30,13 @@ class FlowerMenuRoundedButton: UIView {
         // Drawing code
         
         // Make corners sufficiently rounded and add border!
+        // Clip off pieces of the view that aren't in the circle.
         self.layer.masksToBounds = true
+        
+        // set the corner radius to half of the full width (making things properly circular).
         self.layer.cornerRadius = (self.frame.size.width / 2)
+        
+        // add a little off white border to it all
         self.layer.borderWidth = 2.0
         self.layer.borderColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 0.9).CGColor
         

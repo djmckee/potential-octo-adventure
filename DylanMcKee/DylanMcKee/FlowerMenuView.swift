@@ -20,10 +20,16 @@ class FlowerMenuView: UIView {
     var delegate:protocol<FlowerMenuDelegate>?
     
     // an array to conveniently store references to our buttons in
-    var buttonArray:[FlowerMenuTextButton]?
+    var buttonArray:Array<FlowerMenuTextButton> = Array()
     
     // a conveneience reference to our main central button (of which there's only one)
     var centerButton:FlowerMenuImageButton?
+    
+    // a placeholder to hold the initial frame of the center button to save it being re-calculated.
+    var centerButtonFrame:CGRect?
+    
+    // a boolean to indicate wheter or not we're currently dragging the center button around - defaulted to false for obvious reasons (we're not gonna be dragging on init).
+    var draggingCenter:Bool = false
     
     init(frame: CGRect, buttonNames: [String], middleButtonImage: UIImage) {
         // call super
@@ -37,8 +43,9 @@ class FlowerMenuView: UIView {
         
         
         // calculate button size and spacing in proprtion to the frame width (on a 320px wide display, they're 90px and 10px respectively)
-        let buttonWidth:CGFloat = ((frame.size.width / 320.0) * 90.0)
-        let buttonSpacing:CGFloat = ((frame.size.width / 320.0) * 10.0)
+        let scaleFactor:CGFloat = (frame.size.width / 320.0)
+        let buttonWidth:CGFloat = (scaleFactor * 90.0)
+        let buttonSpacing:CGFloat = (scaleFactor * 10.0)
         
         // calculate top, middle, and bottom row x and y positions (these were created from the paper diagram, but seem to work).
         let midY:CGFloat = self.center.y
@@ -101,21 +108,21 @@ class FlowerMenuView: UIView {
             // get title from array (WILL be there, since bounds checking's been done previously).
             var buttonTitle:String = buttonNames[i]
             
-            // initialise our button with the computed frame and the relevant title
-            var newButton:FlowerMenuTextButton = FlowerMenuTextButton(frame: buttonFrame, text: buttonTitle)
+            // initialise our button with the computed frame and the relevant title, and the current size scale factor, so that it can scale text up to make the most of whatever size display we're running on at the moment.
+            var newButton:FlowerMenuTextButton = FlowerMenuTextButton(frame: buttonFrame, text: buttonTitle, scaleFactor: scaleFactor)
             
             // add to array so we can keep a reference of it conveniently
-            buttonArray?.append(newButton)
+            buttonArray.append(newButton)
 
             // and add to frame
             addSubview(newButton)
         }
         
         // compute center button frame
-        var centerButtonFrame = CGRectMake((midX - buttonWidth/2), (midY - buttonWidth/2), buttonWidth, buttonWidth)
+        centerButtonFrame = CGRectMake((midX - buttonWidth/2), (midY - buttonWidth/2), buttonWidth, buttonWidth)
         
         // now draw the center button
-        centerButton = FlowerMenuImageButton(frame: centerButtonFrame, image: middleButtonImage)
+        centerButton = FlowerMenuImageButton(frame: centerButtonFrame!, image: middleButtonImage)
         
         // and add to view
         addSubview(centerButton!)
@@ -134,6 +141,90 @@ class FlowerMenuView: UIView {
         // not gonna implement this in this implementation - just stick to init with a frame parameter!
         NSException(name: "Not implemented", reason: "FlowerMenuView does not implement init with a coder parameter. Use init with a frame parameter instead!", userInfo: nil)
     }
+    
+    // allow dragging of the centreButton ONLY by touchesBegan, touchesMoved, touchesEnded UIView methods being implemented
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        let touch = touches.first as! UITouch
+        //println("touchesBegan: " + touch.description)
+        
+        checkIfTouchIsInsideAndMove(touch)
+
+    }
+    
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        let touch = touches.first as! UITouch
+        //println("touchesMoved: " + touch.description)
+        
+        checkIfTouchIsInsideAndMove(touch)
+    }
+    
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        let touch = touches.first as! UITouch
+        //println("touchesEnded: " + touch.description)
+        
+        // see if the user finished up inside of any of the menu items, then call the delegate method if they did
+        
+        // 'ping' the center head back to the middle - DO NOT LEAVE STUFF FLOATING
+        returnHeadToMiddle()
+    }
+    
+    // a conveneince function that checks if the touch passed to it is inside of the center button, and if so moves the center button's center to the touch's location
+    private func checkIfTouchIsInsideAndMove(touch :UITouch) {
+        let location = touch.locationInView(self)
+        let frame = centerButton?.frame
+        
+        if CGRectContainsPoint(frame!, location) {
+            // it's inside the center button! Move the center button's center to the touch's center...
+            moveCenterButtonToLocation(location)
+            
+            // and highlight buttons that we may have moved inside of/unhighlight buttons we've moved out of...
+            highlightButtonsIfInside(location)
+        }
+    }
+    
+    // check if the center of the center button is intersecting any of the
+    private func highlightButtonsIfInside(location :CGPoint) {
+        // iterate through the buttons array...
+        for b:FlowerMenuTextButton in buttonArray {
+            if CGRectContainsPoint(b.frame, location) {
+                // highlight!
+                b.setHighlighted(true)
+            } else {
+                // unhighlight!
+                b.setHighlighted(false)
+            }
+        }
+        
+    }
+    
+    private func moveCenterButtonToLocation(location :CGPoint) {
+        // move the center button's center to the specified CGPoint
+        centerButton?.center = location
+    }
+    
+    
+    private func returnHeadToMiddle() {
+        // a private convenience method to reset the centerButton back to the middle of the view (its initial position) in an animated fashion.
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            centerButton?.frame = centerButtonFrame!
+        })
+        
+        // check what's highlighted - find the highlighted button, make it un-highligted, and call the delegate (if present) with it's title...
+        for b:FlowerMenuTextButton in buttonArray {
+            if b.isHighlighted() {
+                // the user's selected this option!
+                // unhighlight...
+                b.setHighlighted(false)
+                
+                // and call the delegate, passing in its title...
+                delegate?.flowerMenuSectionSelectedWithName(b.text!)
+                
+            }
+        }
+        
+    }
+    
+    
     
     /*
     // Only override drawRect: if you perform custom drawing.
