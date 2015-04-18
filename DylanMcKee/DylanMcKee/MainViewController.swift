@@ -62,6 +62,12 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        // absolutely do not want a nav bar under any circuimstances.
+        self.navigationController?.navigationBarHidden = true
+    }
+    
     func scrollToSecond(){
         // and programatically zoom the scrollview to the 'initial' view so the user can 'unlock' the app by sliding left... (because this happens on launch it really shouldn't be animated)
         scrollView.scrollRectToVisible(secondScrollViewPaneFrame, animated: false)
