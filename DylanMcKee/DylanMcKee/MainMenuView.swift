@@ -14,21 +14,19 @@ class MainMenuView: UIView {
     // making it an instance variable so that it's accessible to the ViewController that calls this class (since we want the viewController to become the flower menu's delegate to handle button press events).
     var menu:FlowerMenuView?
 
-    override init(frame: CGRect) {
+    // using an intitialiser to pass through the menu values to provide a decent level of abstraction...
+    init(frame: CGRect, menuItems: Array<String>, centerImage: UIImage) {
         // call super first
         super.init(frame: frame)
         
         // create an array of strings holding our 6 menu button names....
-        var names:[String] = ["about me", "intro", "projects", "interests", "education", "achievements"]
+        var names:[String] = menuItems
         
         // this seems to end up in reverse order, so negate that with a quick call to reverse.
         names = names.reverse()
         
-        // get the middle button image initialised...
-        let middleImage:UIImage = UIImage(named: "DylanHead")!
-        
         // now initialise our flower menu
-        menu = FlowerMenuView(frame: self.frame, buttonNames: names, middleButtonImage: middleImage)
+        menu = FlowerMenuView(frame: self.frame, buttonNames: names, middleButtonImage: centerImage)
         
         // and add to the view
         self.addSubview(menu!)

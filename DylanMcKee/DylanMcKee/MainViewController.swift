@@ -28,7 +28,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+                
+        // Style the nav bar so it looks presentable when shown on relevant view controllers....
+        self.navigationController?.navigationBar.barTintColor = self.view.backgroundColor
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "HelveticaNeue-Thin", size: 22)!]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict as [NSObject : AnyObject]
+        
         
         // scrolling should be swift and merciless
         scrollView.decelerationRate = UIScrollViewDecelerationRateFast
@@ -48,7 +54,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         scrollView.addSubview(initialView)
         
         // initialise the menuView...
-        menuView = MainMenuView(frame: firstScrollViewPaneFrame)
+        let middleImage:UIImage = UIImage(named: "DylanHead")!
+
+        menuView = MainMenuView(frame: firstScrollViewPaneFrame, menuItems: Data.getMenuItemStrings(), centerImage: middleImage)
         
         // set ourselves as a delegate to the menu view's menu...
         menuView.menu?.delegate = self
@@ -166,9 +174,12 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
             playIntroVideo()
         }
         
+        if name == "interests" {
+            performSegueWithIdentifier("interestsSegue", sender: nil)
+        }
+        
     }
 
-    
     func playIntroVideo() {
         // play intro.m4v.
         
