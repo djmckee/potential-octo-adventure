@@ -1,5 +1,11 @@
 # Created by https://www.gitignore.io
 
+# custom things
+data.json
+*.mp4
+*.mov
+*.m4v
+
 ### Xcode ###
 build/
 *.pbxuser
