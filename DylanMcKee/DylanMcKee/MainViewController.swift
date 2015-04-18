@@ -175,7 +175,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         }
         
         if name == "interests" {
-            performSegueWithIdentifier("interestsSegue", sender: nil)
+            performSegueWithIdentifier("showIntrests", sender: nil)
         }
         
         if name == "projects" {
