@@ -111,7 +111,14 @@ class FlowerMenuView: UIView {
             addSubview(newButton)
         }
         
+        // compute center button frame
+        var centerButtonFrame = CGRectMake((midX - buttonWidth/2), (midY - buttonWidth/2), buttonWidth, buttonWidth)
+        
         // now draw the center button
+        centerButton = FlowerMenuImageButton(frame: centerButtonFrame, image: middleButtonImage)
+        
+        // and add to view
+        addSubview(centerButton!)
         
         
     }
