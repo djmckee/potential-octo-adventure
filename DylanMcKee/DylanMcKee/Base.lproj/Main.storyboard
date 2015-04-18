@@ -107,7 +107,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="9iC-47-ud5"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="28"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -172,9 +172,18 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SS9-ad-wjn">
+                                            <rect key="frame" x="-275" y="-275" width="600" height="600"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="0.97902960530000005" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="backgroundView" destination="SS9-ad-wjn" id="YSa-PB-jV2"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

@@ -17,7 +17,7 @@ class FeatureItem {
     var images:Array<UIImage> = []
     
     var featuredImage:UIImage {
-        if images.count > 1 {
+        if images.count > 0 {
             return images.first!
         } else {
             return UIImage()
