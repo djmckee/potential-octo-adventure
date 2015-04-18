@@ -170,11 +170,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         let videoFilePath = NSBundle.mainBundle().pathForResource("intro", ofType: "m4v")
         let videoPathUrl = NSURL.fileURLWithPath(videoFilePath!)
         
-        // instantiate a player
+        // instantiate a player, passing in the local URL to our video file
         let videoPlayer = MPMoviePlayerViewController(contentURL: videoPathUrl)
-                
-        // don't repeat!
-        videoPlayer.moviePlayer.repeatMode = .None
         
         // and present the player modally over the view...
         presentMoviePlayerViewControllerAnimated(videoPlayer)
