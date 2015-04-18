@@ -13,6 +13,9 @@
 		BA3FC4BF1AE2C7E4000ECA1A /* FeatureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FC4BE1AE2C7E4000ECA1A /* FeatureItem.swift */; };
 		BA3FC4C11AE2CB53000ECA1A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FC4C01AE2CB53000ECA1A /* Data.swift */; };
 		BA3FC4C31AE2CBCD000ECA1A /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = BA3FC4C21AE2CBCD000ECA1A /* data.json */; };
+		BA3FC4F31AE2E077000ECA1A /* GridCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FC4F21AE2E077000ECA1A /* GridCollectionViewLayout.swift */; };
+		BA3FC4F51AE2E642000ECA1A /* ProjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FC4F41AE2E642000ECA1A /* ProjectsTableViewController.swift */; };
+		BA3FC4F71AE2E7A3000ECA1A /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3FC4F61AE2E7A3000ECA1A /* ProjectsTableViewCell.swift */; };
 		BA40F92E1AE19AD20005C427 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA40F92D1AE19AD20005C427 /* InitialView.swift */; };
 		BA40F9321AE19B250005C427 /* PulsatingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA40F9311AE19B250005C427 /* PulsatingLabel.swift */; };
 		BA40F9341AE1C0880005C427 /* FlowerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA40F9331AE1C0880005C427 /* FlowerMenuView.swift */; };
@@ -45,6 +48,9 @@
 		BA3FC4BE1AE2C7E4000ECA1A /* FeatureItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureItem.swift; sourceTree = "<group>"; };
 		BA3FC4C01AE2CB53000ECA1A /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		BA3FC4C21AE2CBCD000ECA1A /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = SOURCE_ROOT; };
+		BA3FC4F21AE2E077000ECA1A /* GridCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewLayout.swift; sourceTree = "<group>"; };
+		BA3FC4F41AE2E642000ECA1A /* ProjectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewController.swift; sourceTree = "<group>"; };
+		BA3FC4F61AE2E7A3000ECA1A /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		BA40F92D1AE19AD20005C427 /* InitialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		BA40F9311AE19B250005C427 /* PulsatingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulsatingLabel.swift; sourceTree = "<group>"; };
 		BA40F9331AE1C0880005C427 /* FlowerMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerMenuView.swift; sourceTree = "<group>"; };
@@ -103,6 +109,8 @@
 				BA40F93A1AE1D1940005C427 /* FlowerMenuTextButton.swift */,
 				BA40F93C1AE1D1AB0005C427 /* FlowerMenuImageButton.swift */,
 				BA3FC4BC1AE2C3E6000ECA1A /* InterestCollectionViewCell.swift */,
+				BA3FC4F21AE2E077000ECA1A /* GridCollectionViewLayout.swift */,
+				BA3FC4F61AE2E7A3000ECA1A /* ProjectsTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -114,6 +122,7 @@
 				BA9423531ADDB97A001B39E3 /* MainViewController.swift */,
 				BA9423511ADDB97A001B39E3 /* AppDelegate.swift */,
 				BA3FC4BA1AE2BECB000ECA1A /* InterestsCollectionViewController.swift */,
+				BA3FC4F41AE2E642000ECA1A /* ProjectsTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -277,7 +286,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3FC4F31AE2E077000ECA1A /* GridCollectionViewLayout.swift in Sources */,
 				BA40F92E1AE19AD20005C427 /* InitialView.swift in Sources */,
+				BA3FC4F51AE2E642000ECA1A /* ProjectsTableViewController.swift in Sources */,
+				BA3FC4F71AE2E7A3000ECA1A /* ProjectsTableViewCell.swift in Sources */,
 				BA40F93D1AE1D1AB0005C427 /* FlowerMenuImageButton.swift in Sources */,
 				BA40F9391AE1D0CA0005C427 /* FlowerMenuRoundedButton.swift in Sources */,
 				BA3FC4BD1AE2C3E6000ECA1A /* InterestCollectionViewCell.swift in Sources */,

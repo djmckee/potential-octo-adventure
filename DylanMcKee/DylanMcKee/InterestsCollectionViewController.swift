@@ -21,6 +21,7 @@ class InterestsCollectionViewController: UICollectionViewController {
         // give a title...
         self.title = "Interests"
         
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -58,10 +59,12 @@ class InterestsCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         println("reuse = " + reuseIdentifier + " cellForItemAtIndexPath " + indexPath.description)
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! InterestCollectionViewCell
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! InterestCollectionViewCell
+        
     
         // Configure the cell
-    
+        cell.backgroundColor? = UIColor.redColor()
+
         return cell
     }
 

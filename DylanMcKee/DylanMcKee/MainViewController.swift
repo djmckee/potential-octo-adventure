@@ -94,7 +94,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         
         // see if the scrolling was over 50% towards the first 'pane' - if so snap to the first pane, if not, snap back to the second 'pane' - we don't allow 'floating' half way between the two!
         
-        println(scrollView.bounds)
+        //println(scrollView.bounds)
         
         let halfwayPanePoint = scrollView.contentSize.width - (firstScrollViewPaneFrame.size.width)
         
@@ -116,7 +116,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         
         if currentScrollX < halfwayPanePoint {
             // user is in first pane! snap to it
-            println("in first pane!")
+            //println("in first pane!")
             // call relevant method to setup pane.
             initialiseFirstPane()
 
@@ -176,6 +176,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         
         if name == "interests" {
             performSegueWithIdentifier("interestsSegue", sender: nil)
+        }
+        
+        if name == "projects" {
+            performSegueWithIdentifier("showProjects", sender: nil)
         }
         
     }

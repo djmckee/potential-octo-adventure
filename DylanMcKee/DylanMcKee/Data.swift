@@ -19,7 +19,7 @@ class Data {
         
         let jsonData = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as! NSDictionary
         
-        println("jsonData: " + jsonData.description)
+        //println("jsonData: " + jsonData.description)
         
         return jsonData
 
