@@ -36,10 +36,31 @@ class Data {
         
         for name in imageNamesArray {
             let image = UIImage(named: name)
-            imagesArray.append(image!)
+            if (image != nil) {
+                imagesArray.append(image!)
+            }
         }
         
         return FeatureItem(title: title, description: desc, images: imagesArray)
+    }
+    
+    private class func featureItemForKey(key :String) -> FeatureItem {
+        let itemDict = getData().objectForKey(key) as! Dictionary<String, AnyObject>
+        
+        return featureItemFromDict(itemDict)
+    }
+    
+    private class func itemsForKey(key :String) -> Array<FeatureItem> {
+        let itemArray = getData().objectForKey(key) as! Array<Dictionary<String, AnyObject>>
+        
+        var featuresArray = Array<FeatureItem>()
+        
+        for dict in itemArray {
+            let feature = featureItemFromDict(dict)
+            featuresArray.append(feature)
+        }
+        
+        return featuresArray
     }
     
     // return an array of strings to display in the menu...
@@ -49,16 +70,22 @@ class Data {
     
     // return a FeatureItem containing the 'About Me' data
     class func getAboutInfo() -> FeatureItem {
-        let itemDict = getData().objectForKey("about_me") as! Dictionary<String, AnyObject>
-        
-        return featureItemFromDict(itemDict)
+        return featureItemForKey("about_me")
     }
     
     // return a FeatureItem containing the Education section data
     class func getEducationInfo() -> FeatureItem {
-        let itemDict = getData().objectForKey("education") as! Dictionary<String, AnyObject>
-        
-        return featureItemFromDict(itemDict)
+        return featureItemForKey("education")
+    }
+    
+    // return an array of FeatureItem's containing projects
+    class func getProjects() -> Array<FeatureItem> {
+        return itemsForKey("projects")
+    }
+    
+    // return an array of FeatureItem's containing projects
+    class func getAchievements() -> Array<FeatureItem> {
+        return itemsForKey("achievements")
     }
     
 }
