@@ -64,6 +64,7 @@
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="68M-hB-WJm" firstAttribute="top" secondItem="UaB-h0-pIV" secondAttribute="bottom" id="8HI-Sc-j7k"/>
+                            <constraint firstItem="68M-hB-WJm" firstAttribute="top" secondItem="UaB-h0-pIV" secondAttribute="bottom" id="A92-5J-Gah"/>
                             <constraint firstItem="68M-hB-WJm" firstAttribute="width" secondItem="C7S-YL-OyM" secondAttribute="width" id="K7N-vj-ghh"/>
                             <constraint firstItem="Lx4-cd-owr" firstAttribute="centerX" secondItem="Pei-J1-Gh6" secondAttribute="centerX" id="Q4I-JB-Skm"/>
                             <constraint firstItem="Pei-J1-Gh6" firstAttribute="width" secondItem="68M-hB-WJm" secondAttribute="width" id="Q4q-Z8-eNE"/>
@@ -289,6 +290,6 @@
         <image name="DylanQuayside" width="1391" height="1224"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nJy-Hv-DVk"/>
+        <segue reference="sLK-kN-tcT"/>
     </inferredMetricsTieBreakers>
 </document>

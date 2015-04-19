@@ -25,7 +25,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
     @IBOutlet weak var backgroundImageView:UIImageView!
     @IBOutlet weak var instructionalLabel:UILabel!
     
-    // initialView and menuView will be created and managed programatically, not using the storyboard, from their relevant subclasses and respective NIBs.
+    // initialView and menuView will be created and managed programatically, not using the storyboard, from their respective subclasses.
     private var initialView:InitialView!
     private var menuView:MainMenuView!
     
@@ -100,8 +100,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         if !initialScrollSetup {
             return;
         }
-     
-        
         
         let currentScrollX = scrollView.bounds.origin.x
         
