@@ -16,6 +16,10 @@ protocol FlowerMenuDelegate {
 
 class FlowerMenuView: UIView {
     
+    // static constants for notification identifiers
+    static var CenterButtonBeganSliding = "CenterButtonBeganSliding"
+    static var CenterButtonFinishedSliding = "CenterButtonFinishedSliding"
+    
     // a delegate, which must implement our FlowerMenuDelegate protocol, for callbacks when menu items are selected!
     var delegate:protocol<FlowerMenuDelegate>?
     
@@ -147,6 +151,7 @@ class FlowerMenuView: UIView {
         let touch = touches.first as! UITouch
         //println("touchesBegan: " + touch.description)
         
+        
         checkIfTouchIsInsideAndMove(touch)
 
     }
@@ -166,6 +171,9 @@ class FlowerMenuView: UIView {
         
         // 'ping' the center head back to the middle - DO NOT LEAVE STUFF FLOATING
         returnHeadToMiddle()
+        
+        // notify observers if necessary (for example so that scrollViews in the superview can switch on scrolling).
+        NSNotificationCenter.defaultCenter().postNotificationName(FlowerMenuView.CenterButtonFinishedSliding, object: nil)
     }
     
     // a conveneince function that checks if the touch passed to it is inside of the center button, and if so moves the center button's center to the touch's location
@@ -179,6 +187,10 @@ class FlowerMenuView: UIView {
             
             // and highlight buttons that we may have moved inside of/unhighlight buttons we've moved out of...
             highlightButtonsIfInside(location)
+            
+            // notify observers if necessary (for example so that scrollViews in the superview can switch off scrolling).
+            NSNotificationCenter.defaultCenter().postNotificationName(FlowerMenuView.CenterButtonBeganSliding, object: nil)
+
         }
     }
     

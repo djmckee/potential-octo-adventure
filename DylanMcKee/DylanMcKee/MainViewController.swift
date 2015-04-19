@@ -76,6 +76,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         // and add to the scrollView
         scrollView.addSubview(menuView)
         
+        // observe menu center button movements...
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuCenterStartedSliding:", name:FlowerMenuView.CenterButtonBeganSliding, object: nil)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuCenterFinishedSliding:", name:FlowerMenuView.CenterButtonBeganSliding, object: nil)
+        
         // UIScrollView doesn't like programatically scrolling straight away, do it after a very short delay...
         NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("scrollToSecond"), userInfo: nil, repeats: false)
 
@@ -130,7 +135,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
             // user is in first pane! snap to it
             //println("in first pane!")
             // call relevant method to setup pane.
-            initialiseFirstPane()
+            //initialiseFirstPane()
 
             
         } else {
@@ -212,6 +217,17 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         
     }
     
+    // respond to flower menu center button notifications properly...
+    func menuCenterStartedSliding(notification: NSNotification){
+        // disable the scrollview's scrolling!
+        scrollView.scrollEnabled = false
+    }
+    
+    func menuCenterFinishedSliding(notification: NSNotification){
+        // enable the scrollview's scrolling!
+        scrollView.scrollEnabled = true
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -271,5 +287,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
 
+    
 }
 
