@@ -82,8 +82,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         // absolutely do not want a nav bar under any circuimstances.
         self.navigationController?.navigationBarHidden = true
     }

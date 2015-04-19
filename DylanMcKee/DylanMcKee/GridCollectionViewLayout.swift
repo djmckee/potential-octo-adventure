@@ -20,8 +20,9 @@ class GridCollectionViewLayout: UICollectionViewFlowLayout {
         self.minimumLineSpacing = 10.0
         self.minimumInteritemSpacing = 10.0
         
-        // give items a 95px square
-        self.itemSize = CGSizeMake(140, 140)
+        // divide the main screen's total width by two and take off 15 for spacing to calculate a good cell size...
+        let size:CGFloat = ((UIScreen.mainScreen().bounds.width / 2) - 15)
+        self.itemSize = CGSizeMake(size, size)
         
     }
     
