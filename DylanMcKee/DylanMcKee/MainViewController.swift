@@ -81,10 +81,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "menuCenterFinishedSliding:", name:FlowerMenuView.CenterButtonBeganSliding, object: nil)
         
-        // UIScrollView doesn't like programatically scrolling straight away, do it after a very short delay...
-        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("scrollToSecond"), userInfo: nil, repeats: false)
-
+        // scroll to the 2nd pane by default on launch...
+        scrollView.setContentOffset(CGPointMake(firstScrollViewPaneFrame.size.width, 0), animated: false)
         
+        // initial programatic scroll complete - so the delegate method can begin monitoring genuine scroll events now...
+        initialScrollSetup = true
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -93,15 +94,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         self.navigationController?.navigationBarHidden = true
     }
     
-    func scrollToSecond(){
-        // and programatically zoom the scrollview to the 'initial' view so the user can 'unlock' the app by sliding left... (because this happens on launch it really shouldn't be animated)
-        scrollView.scrollRectToVisible(secondScrollViewPaneFrame, animated: false)
-        
-        
-        // okay, the scrollRectToVisible above has set-up the scrollview, make delegate aware...
-        initialScrollSetup = true
-
-    }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         // if we're not set-up yet, don't take notice of this event
