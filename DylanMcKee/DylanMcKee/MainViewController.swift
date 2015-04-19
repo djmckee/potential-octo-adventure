@@ -9,6 +9,15 @@
 import UIKit
 import MediaPlayer
 
+// types for view controllers in a neat enum (only required for view controllers where one class is used for two types of controller).
+enum ViewControllerTypes {
+    case AboutViewController
+    case InterestsViewController
+    case EducationViewController
+    case AchievementViewController
+    
+}
+
 class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDelegate {
     
     
@@ -17,14 +26,17 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
     @IBOutlet weak var instructionalLabel:UILabel!
     
     // initialView and menuView will be created and managed programatically, not using the storyboard, from their relevant subclasses and respective NIBs.
-    var initialView:InitialView!
-    var menuView:MainMenuView!
+    private var initialView:InitialView!
+    private var menuView:MainMenuView!
     
-    var firstScrollViewPaneFrame:CGRect!
-    var secondScrollViewPaneFrame:CGRect!
+    private var firstScrollViewPaneFrame:CGRect!
+    private var secondScrollViewPaneFrame:CGRect!
     
     // a boolean to indicate that the scrollView has been setup (to stop permenant affixing to the first pane due to delegate values being called before programatic scrolling has taken place properly)
-    var initialScrollSetup:Bool = false
+    private var initialScrollSetup:Bool = false
+    
+    // a placeholder to hold the type of view controller being pushed next, so we can prepare proprely in prepareForSegue
+    private var nextViewControllerTypeToPush:ViewControllerTypes?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -175,7 +187,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         }
         
         if name == "interests" {
-            performSegueWithIdentifier("showIntrests", sender: nil)
+            nextViewControllerTypeToPush = ViewControllerTypes.InterestsViewController
+            performSegueWithIdentifier("showImageGrid", sender: nil)
+        }
+        
+        if name == "achievements" {
+            nextViewControllerTypeToPush = ViewControllerTypes.AchievementViewController
+            performSegueWithIdentifier("showImageGrid", sender: nil)
         }
         
         if name == "projects" {
@@ -183,6 +201,31 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         }
         
     }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showImageGrid" {
+            var nextViewController = segue.destinationViewController as! ImageGridViewController
+            
+            if nextViewControllerTypeToPush == ViewControllerTypes.InterestsViewController {
+                // push for interests
+                nextViewController.itemsList = Data.getInterests()
+                nextViewController.title = "Interests"
+                
+            } else if nextViewControllerTypeToPush == ViewControllerTypes.AchievementViewController {
+                // push for achievements
+                nextViewController.itemsList = Data.getAchievements()
+                nextViewController.title = "Achievements"
+            }
+        }
+        
+    }
+    
 
     func playIntroVideo() {
         // play intro.m4v.

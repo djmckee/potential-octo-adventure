@@ -44,6 +44,8 @@ class FlowerMenuTextButton: FlowerMenuRoundedButton {
         // set text
         label.text = self.text
         
+        label.minimumScaleFactor = 0.5
+        
         // add to view
         self.addSubview(label)
         

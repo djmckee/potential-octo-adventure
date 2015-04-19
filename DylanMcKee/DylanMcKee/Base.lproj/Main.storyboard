@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68M-hB-WJm">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68M-hB-WJm">
                                 <rect key="frame" x="0.0" y="64" width="600" height="320"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="320" id="XpD-wp-Fk3"/>
@@ -51,11 +51,12 @@
                                     <action selector="pageControlChanged:" destination="Wji-bO-2Pt" eventType="valueChanged" id="0lr-Zg-Uv8"/>
                                 </connections>
                             </pageControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lx4-cd-owr">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lx4-cd-owr">
                                 <rect key="frame" x="0.0" y="414" width="600" height="186"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
@@ -82,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bp6-4E-lcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="235" y="-400"/>
+            <point key="canvasLocation" x="992" y="-405"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -142,7 +143,7 @@
                         <outlet property="instructionalLabel" destination="lOt-JX-wG2" id="KSh-Pg-0PB"/>
                         <outlet property="scrollView" destination="2zO-aR-t0O" id="crX-vk-ghQ"/>
                         <segue destination="zxd-g6-Vi8" kind="show" identifier="showProjects" id="7SI-dk-6Px"/>
-                        <segue destination="zSh-Wf-tEp" kind="show" identifier="showIntrests" id="Jxp-1q-hsD"/>
+                        <segue destination="zSh-Wf-tEp" kind="show" identifier="showImageGrid" id="Jxp-1q-hsD"/>
                         <segue destination="Wji-bO-2Pt" kind="show" identifier="showDetail" id="8B7-0W-bKK"/>
                     </connections>
                 </viewController>
@@ -150,10 +151,10 @@
             </objects>
             <point key="canvasLocation" x="334" y="270"/>
         </scene>
-        <!--Interests View Controller-->
+        <!--Image Grid View Controller-->
         <scene sceneID="LZ7-ni-pBL">
             <objects>
-                <viewController id="zSh-Wf-tEp" customClass="InterestsViewController" customModule="DylanMcKee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zSh-Wf-tEp" customClass="ImageGridViewController" customModule="DylanMcKee" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DuT-uW-zbZ"/>
                         <viewControllerLayoutGuide type="bottom" id="XWY-uO-tTi"/>
@@ -164,18 +165,18 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BoX-hm-XSo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JWp-Fj-cJQ">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JWp-Fj-cJQ" customClass="GridCollectionViewLayout" customModule="DylanMcKee" customModuleProvider="target">
+                                    <size key="itemSize" width="90" height="90"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="interestsCell" id="ucd-sb-UbI" customClass="InterestCollectionViewCell" customModule="DylanMcKee" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageGridCell" id="ucd-sb-UbI" customClass="InterestCollectionViewCell" customModule="DylanMcKee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -265,6 +266,9 @@
                             <outlet property="delegate" destination="zxd-g6-Vi8" id="JsT-oA-IUO"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="Wji-bO-2Pt" kind="show" identifier="projectDetails" id="nJy-Hv-DVk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2H4-iW-Z6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -274,4 +278,7 @@
     <resources>
         <image name="DylanQuayside" width="1391" height="1224"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nJy-Hv-DVk"/>
+    </inferredMetricsTieBreakers>
 </document>

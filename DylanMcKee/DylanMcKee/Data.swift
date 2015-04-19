@@ -83,9 +83,14 @@ class Data {
         return itemsForKey("projects")
     }
     
-    // return an array of FeatureItem's containing projects
+    // return an array of FeatureItem's containing achievements
     class func getAchievements() -> Array<FeatureItem> {
         return itemsForKey("achievements")
+    }
+    
+    // return an array of FeatureItem's containing interests
+    class func getInterests() -> Array<FeatureItem> {
+        return itemsForKey("interests")
     }
     
 }

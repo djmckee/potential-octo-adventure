@@ -8,8 +8,25 @@
 
 import UIKit
 
-class InterestCollectionViewCell: UICollectionViewCell {
+class ImageCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView:UIImageView!
+    var imageView:UIImageView!
+    
+    private func commonInit() {
+        imageView = UIImageView()
+        imageView.frame = self.bounds
+        self.addSubview(imageView)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+
+    }
     
 }

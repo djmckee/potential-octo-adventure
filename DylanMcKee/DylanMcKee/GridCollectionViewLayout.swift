@@ -21,7 +21,7 @@ class GridCollectionViewLayout: UICollectionViewFlowLayout {
         self.minimumInteritemSpacing = 10.0
         
         // give items a 95px square
-        self.itemSize = CGSizeMake(95.0, 95.0)
+        self.itemSize = CGSizeMake(90, 90)
         
     }
     
