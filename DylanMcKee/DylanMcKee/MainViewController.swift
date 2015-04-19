@@ -108,65 +108,50 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         if !initialScrollSetup {
             return;
         }
+     
         
-        // see if the scrolling was over 50% towards the first 'pane' - if so snap to the first pane, if not, snap back to the second 'pane' - we don't allow 'floating' half way between the two!
-        
-        //println(scrollView.bounds)
-        
-        let halfwayPanePoint = scrollView.contentSize.width - (firstScrollViewPaneFrame.size.width)
         
         let currentScrollX = scrollView.bounds.origin.x
         
-        // the alpha of the background image should be proportional to the amount that it is scrolled to the left pane - when fully in the left pane, alpha drops to 0.5, when fully in the right pane, alpha is at 1.0
+        // the alpha of the background image should be proportional to the amount that it is scrolled to the left pane - when fully in the left pane, alpha drops to 0.3, when fully in the right pane, alpha is at 1.0
         var computedAlpha:CGFloat
         
         computedAlpha = (currentScrollX / firstScrollViewPaneFrame.size.width)
         
-        // has a minimum of 50% alpha - perform a bounds check!
-        if computedAlpha < 0.5 {
-            computedAlpha = 0.5
+        // has a minimum of 30% alpha - perform a bounds check!
+        let minimumAlphaLimit:CGFloat = 0.3
+        if computedAlpha < minimumAlphaLimit {
+            computedAlpha = minimumAlphaLimit
         }
         
         // set computed alpha
         backgroundImageView.alpha = computedAlpha
         
-        
-        if currentScrollX < halfwayPanePoint {
-            // user is in first pane! snap to it
-            //println("in first pane!")
-            // call relevant method to setup pane.
-            //initialiseFirstPane()
-
-            
-        } else {
-            // snap back to the second pane!
-            scrollView.scrollRectToVisible(secondScrollViewPaneFrame, animated: true)
-
+        if scrollView.contentOffset.x < 5 && instructionalLabel.hidden == true {
+            // if the scrollView's been scrolled right to the start, and the instructionalLabel hasn't yet been shown, show it to the user so they know what to do!
+            showInstructionalLabel()
         }
-        
         
     }
     
     
-    // a function to be called when the user scrolls into the first pane!
-    private func initialiseFirstPane() {
+    // a function to show the instruction label for 5 seconds then fade it out.
+    private func showInstructionalLabel() {
         
         // sort out the instructional label first...
         // add rounded corners!
         instructionalLabel.layer.masksToBounds = true
         instructionalLabel.layer.cornerRadius = 5.0
         
-        // show the instructional label for 7 seconds
-        instructionalLabel.hidden = false
+        // show the instructional label for 5 seconds
+        self.instructionalLabel.hidden = false
+
+        UIView.animateWithDuration(1.0, animations: { () -> Void in
+            self.instructionalLabel.alpha = 1.0
+        })
         
-        NSTimer.scheduledTimerWithTimeInterval(7.0, target: self, selector: Selector("hideIntroLabel"), userInfo: nil, repeats: false)
-        
-        
-        // jump completely into first pane (with animation).
-        scrollView.scrollRectToVisible(firstScrollViewPaneFrame, animated: true)
-        
-        // stop the scrollview scrolling again (user can only 'unlock' the app once!)
-        scrollView.scrollEnabled = false
+        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("hideIntroLabel"), userInfo: nil, repeats: false)
+
     }
     
     
@@ -268,7 +253,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
     }
     
 
-    func playIntroVideo() {
+    private func playIntroVideo() {
         // play intro.m4v.
         
         // load the file path in...
