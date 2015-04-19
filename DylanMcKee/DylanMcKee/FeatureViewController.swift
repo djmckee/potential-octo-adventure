@@ -100,9 +100,4 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
         pageControl.currentPage = Int(currentPage)
     }
     
-    
-    // this view controller should be portrait only!
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
-    }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
 
+    }
+    
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
+        // if it's the video player, allow auto rotation to any orientation - otherwise, lock to portrait!
+        if self.window?.rootViewController?.presentedViewController is MPMoviePlayerViewController {
+            return Int(UIInterfaceOrientationMask.All.rawValue);
+        } else {
+            return Int(UIInterfaceOrientationMask.Portrait.rawValue);
+        }
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

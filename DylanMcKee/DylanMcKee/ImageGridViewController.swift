@@ -84,11 +84,4 @@ class ImageGridViewController: UIViewController, UICollectionViewDataSource, UIC
         
     }
     
-    
-    
-    // this view controller should be portrait only!
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
-    }
-
 }
