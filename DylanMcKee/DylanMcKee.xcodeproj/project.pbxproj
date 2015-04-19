@@ -165,9 +165,9 @@
 		BA94234E1ADDB97A001B39E3 /* DylanMcKee */ = {
 			isa = PBXGroup;
 			children = (
-				BA40F9371AE1D07A0005C427 /* Controller */,
-				BA40F9361AE1D0710005C427 /* View */,
 				BA40F9351AE1D06C0005C427 /* Model */,
+				BA40F9361AE1D0710005C427 /* View */,
+				BA40F9371AE1D07A0005C427 /* Controller */,
 				BA9423581ADDB97A001B39E3 /* Images.xcassets */,
 				BA94234F1ADDB97A001B39E3 /* Supporting Files */,
 			);
