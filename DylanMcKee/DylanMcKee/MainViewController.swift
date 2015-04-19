@@ -196,6 +196,16 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
             performSegueWithIdentifier("showImageGrid", sender: nil)
         }
         
+        if name == "about me" {
+            nextViewControllerTypeToPush = ViewControllerTypes.AboutViewController
+            performSegueWithIdentifier("showDetailView", sender: nil)
+        }
+        
+        if name == "education" {
+            nextViewControllerTypeToPush = ViewControllerTypes.EducationViewController
+            performSegueWithIdentifier("showDetailView", sender: nil)
+        }
+        
         if name == "projects" {
             performSegueWithIdentifier("showProjects", sender: nil)
         }
@@ -221,6 +231,21 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
                 // push for achievements
                 nextViewController.itemsList = Data.getAchievements()
                 nextViewController.title = "Achievements"
+            }
+        }
+        
+        if segue.identifier == "showDetailView" {
+            var nextViewController = segue.destinationViewController as! FeatureViewController
+            
+            if nextViewControllerTypeToPush == ViewControllerTypes.AboutViewController {
+                // push for about me
+                nextViewController.data = Data.getAboutInfo()
+                nextViewController.title = "About Me"
+                
+            } else if nextViewControllerTypeToPush == ViewControllerTypes.EducationViewController {
+                // push for education
+                nextViewController.data = Data.getEducationInfo()
+                nextViewController.title = "Education"
             }
         }
         

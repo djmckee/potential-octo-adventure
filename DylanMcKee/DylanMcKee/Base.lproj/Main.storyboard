@@ -145,6 +145,7 @@
                         <segue destination="zxd-g6-Vi8" kind="show" identifier="showProjects" id="7SI-dk-6Px"/>
                         <segue destination="zSh-Wf-tEp" kind="show" identifier="showImageGrid" id="Jxp-1q-hsD"/>
                         <segue destination="Wji-bO-2Pt" kind="show" identifier="showDetail" id="8B7-0W-bKK"/>
+                        <segue destination="Wji-bO-2Pt" kind="show" identifier="showDetailView" id="yEH-Z6-vhX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -280,6 +281,6 @@
         <image name="DylanQuayside" width="1391" height="1224"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nJy-Hv-DVk"/>
+        <segue reference="yEH-Z6-vhX"/>
     </inferredMetricsTieBreakers>
 </document>

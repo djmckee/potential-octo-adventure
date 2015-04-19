@@ -41,7 +41,7 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
         var counter = 0
         
         for image:UIImage in data.images {
-            let newXPosition = (imageScrollView.frame.size.width * CGFloat(counter))
+            let newXPosition = (self.view.frame.size.width * CGFloat(counter))
             let newImageView = UIImageView(image: image)
             newImageView.frame = CGRectMake(newXPosition, 0, self.view.frame.size.width, imageScrollView.frame.size.height)
             
