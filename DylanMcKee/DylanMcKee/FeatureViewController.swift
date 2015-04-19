@@ -41,8 +41,8 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
         var counter = 0
         
         for image:UIImage in data.images {
-            let newXPosition = (self.view.frame.size.width * CGFloat(counter))
-            let newImageView = UIImageView(image: image)
+            let newXPosition:CGFloat = (self.view.frame.size.width * CGFloat(counter))
+            let newImageView:UIImageView = UIImageView(image: image)
             newImageView.frame = CGRectMake(newXPosition, 0, self.view.frame.size.width, imageScrollView.frame.size.height)
             
             newImageView.contentMode = UIViewContentMode.ScaleAspectFill
