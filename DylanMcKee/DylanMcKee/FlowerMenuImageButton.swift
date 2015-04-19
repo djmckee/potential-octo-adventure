@@ -24,9 +24,6 @@ class FlowerMenuImageButton: FlowerMenuRoundedButton {
         // add to view
         self.addSubview(imageView)
         
-        // image button gets dragged around, so users need to interact
-        self.userInteractionEnabled = true
-
     }
 
     required init(coder aDecoder: NSCoder) {

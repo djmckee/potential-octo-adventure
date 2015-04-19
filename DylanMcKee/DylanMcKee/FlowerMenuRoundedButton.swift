@@ -14,8 +14,12 @@ class FlowerMenuRoundedButton: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        // we need a clear background colour...
+        // we need a clear background colour by default...
         self.backgroundColor = UIColor.clearColor()
+        
+        // users need to tap or drag these buttons...
+        self.userInteractionEnabled = true
+
         
     }
 

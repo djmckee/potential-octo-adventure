@@ -14,7 +14,7 @@ protocol FlowerMenuDelegate {
     func flowerMenuSectionSelectedWithName(name:String)
 }
 
-class FlowerMenuView: UIView {
+class FlowerMenuView: UIView, FlowerMenuTextButtonDelegate {
     
     // static constants for notification identifiers
     static var CenterButtonBeganSliding = "CenterButtonBeganSliding"
@@ -114,6 +114,9 @@ class FlowerMenuView: UIView {
             
             // initialise our button with the computed frame and the relevant title, and the current size scale factor, so that it can scale text up to make the most of whatever size display we're running on at the moment.
             var newButton:FlowerMenuTextButton = FlowerMenuTextButton(frame: buttonFrame, text: buttonTitle, scaleFactor: scaleFactor)
+            
+            // set ourselves as the button's delegate, so we recieve tap callbacks....
+            newButton.delegate = self
             
             // add to array so we can keep a reference of it conveniently
             buttonArray.append(newButton)
@@ -236,7 +239,11 @@ class FlowerMenuView: UIView {
         
     }
     
-    
+    func flowerMenuTextButtonTapped(button :FlowerMenuTextButton){
+        // call the relevant delegate method...
+        delegate?.flowerMenuSectionSelectedWithName(button.text!)
+    }
+
     
     /*
     // Only override drawRect: if you perform custom drawing.
