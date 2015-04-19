@@ -218,21 +218,21 @@
         <scene sceneID="ovb-Nb-7PK">
             <objects>
                 <tableViewController id="zxd-g6-Vi8" customClass="ProjectsTableViewController" customModule="DylanMcKee" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="lKx-uQ-d4z">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" id="lKx-uQ-d4z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projectsCell" rowHeight="100" id="HQb-KZ-5Os" customClass="ProjectsTableViewCell" customModule="DylanMcKee" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projectsCell" rowHeight="120" id="HQb-KZ-5Os" customClass="ProjectsTableViewCell" customModule="DylanMcKee" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HQb-KZ-5Os" id="vG8-4X-d8v">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MK1-eg-TAY">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                        <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MK1-eg-TAY">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="23h-VT-uBb">
-                                            <rect key="frame" x="0.0" y="19" width="600" height="32"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who Can I Vote For" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="23h-VT-uBb">
+                                            <rect key="frame" x="0.0" y="44" width="600" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="9iC-47-ud5"/>
                                             </constraints>
@@ -241,18 +241,18 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bF0-ov-Czi">
-                                            <rect key="frame" x="0.0" y="59" width="600" height="21"/>
+                                            <rect key="frame" x="0.0" y="91" width="600" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="gL0-b6-Wgc"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="bF0-ov-Czi" firstAttribute="top" secondItem="23h-VT-uBb" secondAttribute="bottom" constant="8" id="BYZ-2E-Ljr"/>
+                                        <constraint firstItem="bF0-ov-Czi" firstAttribute="top" secondItem="23h-VT-uBb" secondAttribute="bottom" constant="15" id="BYZ-2E-Ljr"/>
                                         <constraint firstItem="MK1-eg-TAY" firstAttribute="top" secondItem="vG8-4X-d8v" secondAttribute="top" id="DDz-pE-avc"/>
                                         <constraint firstAttribute="bottom" secondItem="MK1-eg-TAY" secondAttribute="bottom" id="GOi-DY-AL9"/>
                                         <constraint firstItem="MK1-eg-TAY" firstAttribute="leading" secondItem="vG8-4X-d8v" secondAttribute="leading" id="OOZ-vp-JFG"/>
@@ -260,7 +260,7 @@
                                         <constraint firstItem="bF0-ov-Czi" firstAttribute="leading" secondItem="MK1-eg-TAY" secondAttribute="leading" id="ZQU-eR-E7W"/>
                                         <constraint firstAttribute="trailing" secondItem="MK1-eg-TAY" secondAttribute="trailing" id="dP8-Gc-JJz"/>
                                         <constraint firstItem="MK1-eg-TAY" firstAttribute="width" secondItem="bF0-ov-Czi" secondAttribute="width" id="l7b-MN-gkf"/>
-                                        <constraint firstItem="MK1-eg-TAY" firstAttribute="top" secondItem="23h-VT-uBb" secondAttribute="bottom" constant="-51" id="np7-p3-Nev"/>
+                                        <constraint firstItem="MK1-eg-TAY" firstAttribute="top" secondItem="23h-VT-uBb" secondAttribute="bottom" constant="-76" id="np7-p3-Nev"/>
                                         <constraint firstItem="23h-VT-uBb" firstAttribute="width" secondItem="MK1-eg-TAY" secondAttribute="width" id="uKm-pV-zfm"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -289,6 +289,6 @@
         <image name="DylanQuayside" width="1391" height="1224"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sLK-kN-tcT"/>
+        <segue reference="nJy-Hv-DVk"/>
     </inferredMetricsTieBreakers>
 </document>
