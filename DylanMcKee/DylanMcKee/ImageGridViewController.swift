@@ -16,7 +16,10 @@ class ImageGridViewController: UIViewController, UICollectionViewDataSource, UIC
     var itemsList:Array<FeatureItem>!
     
     // re-use identifier constant
-    let reuseIdentifier:String = "imageGridCell"
+    private let reuseIdentifier:String = "imageGridCell"
+    
+    // a placeholder to hold teh selected FeatureItem in between item selection and the prepareForSegue method
+    private var selectedItem:FeatureItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +57,14 @@ class ImageGridViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
         //println("selected " + String(indexPath.row))
+        
+        // get the selected item and set the placeholder so it can be set properly in prepareForSegue
+        selectedItem = itemsList[indexPath.row]
+        
+        // perform the segue to the detail view
+        performSegueWithIdentifier("imageGridDetailView", sender: nil)
+
+        
     }
     
     // MARK: - Navigation
@@ -62,6 +73,11 @@ class ImageGridViewController: UIViewController, UICollectionViewDataSource, UIC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        // set the selectedItem data property...
+        var nextViewController = segue.destinationViewController as! FeatureViewController
+        nextViewController.data = selectedItem
+        
     }
     
     

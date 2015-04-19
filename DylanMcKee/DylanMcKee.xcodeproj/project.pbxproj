@@ -90,6 +90,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA3FC4FC1AE32BEC000ECA1A /* FlowerMenu View */ = {
+			isa = PBXGroup;
+			children = (
+				BA40F9331AE1C0880005C427 /* FlowerMenuView.swift */,
+				BA40F9381AE1D0CA0005C427 /* FlowerMenuRoundedButton.swift */,
+				BA40F93A1AE1D1940005C427 /* FlowerMenuTextButton.swift */,
+				BA40F93C1AE1D1AB0005C427 /* FlowerMenuImageButton.swift */,
+			);
+			name = "FlowerMenu View";
+			sourceTree = "<group>";
+		};
 		BA40F9351AE1D06C0005C427 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,10 +117,7 @@
 				BA40F92D1AE19AD20005C427 /* InitialView.swift */,
 				BAF4F37B1AE242320012EFF8 /* MainMenuView.swift */,
 				BA40F9311AE19B250005C427 /* PulsatingLabel.swift */,
-				BA40F9331AE1C0880005C427 /* FlowerMenuView.swift */,
-				BA40F9381AE1D0CA0005C427 /* FlowerMenuRoundedButton.swift */,
-				BA40F93A1AE1D1940005C427 /* FlowerMenuTextButton.swift */,
-				BA40F93C1AE1D1AB0005C427 /* FlowerMenuImageButton.swift */,
+				BA3FC4FC1AE32BEC000ECA1A /* FlowerMenu View */,
 				BA3FC4BC1AE2C3E6000ECA1A /* InterestCollectionViewCell.swift */,
 				BA3FC4F21AE2E077000ECA1A /* GridCollectionViewLayout.swift */,
 				BA3FC4F61AE2E7A3000ECA1A /* ProjectsTableViewCell.swift */,

@@ -198,6 +198,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="BoX-hm-XSo" id="sh8-gF-q0m"/>
+                        <segue destination="Wji-bO-2Pt" kind="show" identifier="imageGridDetailView" id="sLK-kN-tcT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4h-KL-TeA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,6 +280,6 @@
         <image name="DylanQuayside" width="1391" height="1224"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nJy-Hv-DVk"/>
+        <segue reference="sLK-kN-tcT"/>
     </inferredMetricsTieBreakers>
 </document>
