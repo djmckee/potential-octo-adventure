@@ -63,7 +63,7 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
         descriptionTextView.text = data.description
 
         // scroll to initial rect.
-        imageScrollView.scrollRectToVisible(CGRectMake(0, 0, self.view.frame.size.width, imageScrollView.frame.size.height), animated: false)
+        imageScrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: false)
         
     }
 

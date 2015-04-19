@@ -78,9 +78,22 @@ class Data {
         return featureItemForKey("education")
     }
     
-    // return an array of FeatureItem's containing projects
-    class func getProjects() -> Array<FeatureItem> {
-        return itemsForKey("projects")
+    // return an array of ProjectItems containing projects
+    class func getProjects() -> Array<ProjectItem> {
+        let itemArray = getData().objectForKey("projects") as! Array<Dictionary<String, AnyObject>>
+        
+        var projects = Array<ProjectItem>()
+        
+        for dict in itemArray {
+            let subtitle = dict["subtitle"] as! String
+            
+            // use our factory constructor to allow our convenience method to create a FeatureItem from the dict, then turn this into a project item via the constructor (and passing in a subtitle too).
+            let project = ProjectItem.initWithFeatureItemAndSubtitle(featureItemFromDict(dict), subtitle: subtitle)
+            
+            projects.append(project)
+        }
+        
+        return projects
     }
     
     // return an array of FeatureItem's containing achievements

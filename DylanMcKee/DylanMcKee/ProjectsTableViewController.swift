@@ -11,7 +11,7 @@ import UIKit
 class ProjectsTableViewController: UITableViewController {
     
     // a conveneince placeholder for the data to display
-    let projects:Array<FeatureItem> = Data.getProjects()
+    let projects:Array<ProjectItem> = Data.getProjects()
     
     // a placeholder to hold tapped row index.
     private var selectedRowIndex:Int?
@@ -53,9 +53,13 @@ class ProjectsTableViewController: UITableViewController {
 
         // Configure the cell...
         
-        cell.mainLabel.text = projects[indexPath.row].title
+        let currentProject:ProjectItem = projects[indexPath.row]
         
-        cell.backgroundImageView.image = projects[indexPath.row].featuredImage
+        cell.mainLabel.text = currentProject.title
+        
+        cell.subLabel.text = currentProject.subtitle
+        
+        cell.backgroundImageView.image = currentProject.featuredImage
 
         return cell
     }
