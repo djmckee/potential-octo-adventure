@@ -1,5 +1,5 @@
 //
-//  InterestCollectionViewCell.swift
+//  ImageCollectionViewCell.swift
 //  DylanMcKee
 //
 //  Created by Dylan McKee on 18/04/2015.
