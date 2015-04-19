@@ -12,7 +12,7 @@ class ImageGridViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet weak var collectionView:UICollectionView!
     
-    // an array of FeatureItems do display
+    // an array of FeatureItems do display - public so it can be set when pushing from other view controllers.
     var itemsList:Array<FeatureItem>!
     
     // re-use identifier constant

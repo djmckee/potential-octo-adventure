@@ -10,7 +10,7 @@ import UIKit
 
 class FeatureViewController: UIViewController, UIScrollViewDelegate {
     
-    // a placeholder FeatureItem that the data will be loaded in from and displayed in this ViewController...
+    // a placeholder FeatureItem that the data will be loaded in from and displayed in this ViewController... a public variable so it can be set from other view controller's prepareForSegue methods.
     var data:FeatureItem!
     
     // a scroll view to hold our many images

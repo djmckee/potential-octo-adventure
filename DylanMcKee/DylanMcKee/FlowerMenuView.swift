@@ -20,16 +20,16 @@ class FlowerMenuView: UIView {
     var delegate:protocol<FlowerMenuDelegate>?
     
     // an array to conveniently store references to our buttons in
-    var buttonArray:Array<FlowerMenuTextButton> = Array()
+    private var buttonArray:Array<FlowerMenuTextButton> = Array()
     
     // a conveneience reference to our main central button (of which there's only one)
-    var centerButton:FlowerMenuImageButton?
+    private var centerButton:FlowerMenuImageButton?
     
     // a placeholder to hold the initial frame of the center button to save it being re-calculated.
-    var centerButtonFrame:CGRect?
+    private var centerButtonFrame:CGRect?
     
     // a boolean to indicate wheter or not we're currently dragging the center button around - defaulted to false for obvious reasons (we're not gonna be dragging on init).
-    var draggingCenter:Bool = false
+    private var draggingCenter:Bool = false
     
     init(frame: CGRect, buttonNames: [String], middleButtonImage: UIImage) {
         // call super

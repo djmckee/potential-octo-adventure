@@ -11,7 +11,7 @@ import UIKit
 // A UIView to sit on the left hand pane of the scrollView in MainViewController, containing a FlowerMenuView (and allowing for the pass through the FlowerMenuView delegate methods)
 class MainMenuView: UIView {
     
-    // making it an instance variable so that it's accessible to the ViewController that calls this class (since we want the viewController to become the flower menu's delegate to handle button press events).
+    // making it a public instance variable so that it's accessible to the ViewController that calls this class (since we want the viewController to become the flower menu's delegate to handle button press events).
     var menu:FlowerMenuView?
 
     // using an intitialiser to pass through the menu values to provide a decent level of abstraction...
