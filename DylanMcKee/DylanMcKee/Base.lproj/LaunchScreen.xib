@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="475" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DylanQuayside" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-sj-Nl0">
+                <imageView userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DylanQuayside" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-sj-Nl0">
                     <rect key="frame" x="0.0" y="0.0" width="475" height="480"/>
                     <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
@@ -30,8 +30,12 @@ McKee</string>
             <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" id="5cJ-9S-tgC"/>
+                <constraint firstAttribute="trailing" secondItem="Slb-sj-Nl0" secondAttribute="trailing" id="I4t-Vs-2Ta"/>
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
+                <constraint firstItem="Slb-sj-Nl0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WZA-ib-X8R"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="Slb-sj-Nl0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jvH-kJ-jhA"/>
+                <constraint firstAttribute="bottom" secondItem="Slb-sj-Nl0" secondAttribute="bottom" id="s36-A3-Mcn"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
