@@ -143,21 +143,21 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         instructionalLabel.layer.masksToBounds = true
         instructionalLabel.layer.cornerRadius = 5.0
         
-        // show the instructional label for 5 seconds
+        // show the instructional label for a few seconds
         self.instructionalLabel.hidden = false
 
-        UIView.animateWithDuration(1.0, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.instructionalLabel.alpha = 1.0
         })
         
-        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("hideIntroLabel"), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("hideIntroLabel"), userInfo: nil, repeats: false)
 
     }
     
     
     func hideIntroLabel() {
         // hide the instructional intro label in a smooth fade animation
-        UIView.animateWithDuration(1.0, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.instructionalLabel.alpha = 0.0
         })
     }

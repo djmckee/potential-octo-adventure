@@ -19,28 +19,22 @@ class InitialView: UIView {
         
         // add our pulsating label and other labels (feat. animations).
         
-        let helloLabel:UILabel = UILabel(frame: CGRectMake(0, 40, self.frame.size.width, 55))
+        let helloLabel:FlatLabel = FlatLabel(frame: CGRectMake(0, 40, self.frame.size.width, 55))
         helloLabel.text = "Hello."
-        helloLabel.textColor = UIColor.whiteColor();
-        helloLabel.textAlignment = NSTextAlignment.Center
-        helloLabel.font = UIFont(name: "HelveticaNeue-UltraLight", size: 50)
         helloLabel.alpha = 0.0
         self.addSubview(helloLabel)
         
-        UIView.animateWithDuration(1.5, animations: { () -> Void in
+        UIView.animateWithDuration(1.0, animations: { () -> Void in
             // fade in initial hello label
             helloLabel.alpha =  1.0
         })
         
-        let nameLabel:UILabel = UILabel(frame: CGRectMake(0, (helloLabel.frame.origin.y + helloLabel.frame.size.height), self.frame.size.width, 100))
+        let nameLabel:FlatLabel = FlatLabel(frame: CGRectMake(0, (helloLabel.frame.origin.y + helloLabel.frame.size.height), self.frame.size.width, 100))
         nameLabel.text = "I'm Dylan."
-        nameLabel.textColor = UIColor.whiteColor();
-        nameLabel.textAlignment = NSTextAlignment.Center
-        nameLabel.font = UIFont(name: "HelveticaNeue-UltraLight", size: 50)
         nameLabel.alpha = 0.0
         self.addSubview(nameLabel)
         
-        UIView.animateWithDuration(1.5, delay: 1.5, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(1.0, delay: 1.0, options: nil, animations: { () -> Void in
             //fade in name label
             nameLabel.alpha = 1.0
         }, completion: nil)
@@ -53,11 +47,11 @@ class InitialView: UIView {
         
         slideToBeginLabel.text = "slide to begin >"
         
-        // hide the label for an initial 3 seconds so other labels can load first...
+        // hide the label for an initial 2 seconds so other labels can load first...
         slideToBeginLabel.hidden = true
         
         
-        NSTimer.scheduledTimerWithTimeInterval(3.5, target: self, selector: Selector("unhideLabel"), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("unhideLabel"), userInfo: nil, repeats: false)
         
         // add it to the view
         self.addSubview(slideToBeginLabel)
