@@ -19,9 +19,6 @@ class ProjectsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // evidently need navigation.
-        self.navigationController?.navigationBarHidden = false
-        
         self.title = "Projects"
         
         // Uncomment the following line to preserve selection between presentations
@@ -30,7 +27,14 @@ class ProjectsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // we want a navbar
+        self.navigationController?.navigationBarHidden = false
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

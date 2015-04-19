@@ -25,9 +25,6 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // we want a navbar
-        self.navigationController?.navigationBarHidden = false
-        
         // set the title to the FeatureItem's title
         self.title = data.title
         
@@ -36,6 +33,9 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
         
         // set to calculated size.
         imageScrollView.contentSize = CGSizeMake(totalScrollWidth, imageScrollView.frame.size.height)
+        
+        // lock direction 
+        imageScrollView.directionalLockEnabled = true
         
         // iterate through the images, creating a UIImageView for each one, adding the image to it, and adding it to the relevant frame iside of the imageScrollView
         var counter = 0
@@ -64,6 +64,14 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
 
         // scroll to initial rect.
         imageScrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: false)
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // we want a navbar
+        self.navigationController?.navigationBarHidden = false
         
     }
 

@@ -23,13 +23,17 @@ class ImageGridViewController: UIViewController, UICollectionViewDataSource, UIC
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // we want a navbar
-        self.navigationController?.navigationBarHidden = false
-        
         
         // Do any additional setup after loading the view.
         collectionView.registerClass(ImageCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // we want a navbar
+        self.navigationController?.navigationBarHidden = false
+        
     }
 
     override func didReceiveMemoryWarning() {
