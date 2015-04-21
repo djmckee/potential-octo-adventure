@@ -171,7 +171,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
             performSegueWithIdentifier("showImageGrid", sender: nil)
         }
         
-        if name == "achievements" {
+        if name == "success" {
             nextViewControllerTypeToPush = ViewControllerTypes.AchievementViewController
             performSegueWithIdentifier("showImageGrid", sender: nil)
         }
