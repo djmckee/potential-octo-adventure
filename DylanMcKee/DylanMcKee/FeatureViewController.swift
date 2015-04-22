@@ -219,6 +219,9 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         // now set our attributed string to be displayed in the description text view, now that we've added any links...
         descriptionTextView.attributedText = attributedDescriptionString
         
+        // set a link colour for the textview
+        descriptionTextView.linkTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
         // now set our container scroll view's content size to fit the descriptionTextView in properly...
         containerScrollView.contentSize = CGSizeMake(containerScrollView.frame.size.width, (descriptionTextView.frame.origin.y + descriptionTextView.frame.size.height + 30.0))
 
