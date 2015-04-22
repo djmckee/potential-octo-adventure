@@ -32,7 +32,6 @@
 		BA9423571ADDB97A001B39E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA9423551ADDB97A001B39E3 /* Main.storyboard */; };
 		BA9423591ADDB97A001B39E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9423581ADDB97A001B39E3 /* Images.xcassets */; };
 		BA94235C1ADDB97A001B39E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA94235A1ADDB97A001B39E3 /* LaunchScreen.xib */; };
-		BA9423681ADDB97A001B39E3 /* DylanMcKeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9423671ADDB97A001B39E3 /* DylanMcKeeTests.swift */; };
 		BAB5D8441AE86569005B99AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB5D8431AE86569005B99AB /* Constants.swift */; };
 		BAF4F37C1AE242320012EFF8 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF4F37B1AE242320012EFF8 /* MainMenuView.swift */; };
 /* End PBXBuildFile section */
@@ -76,8 +75,6 @@
 		BA9423581ADDB97A001B39E3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BA94235B1ADDB97A001B39E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BA9423611ADDB97A001B39E3 /* DylanMcKeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DylanMcKeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA9423661ADDB97A001B39E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA9423671ADDB97A001B39E3 /* DylanMcKeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DylanMcKeeTests.swift; sourceTree = "<group>"; };
 		BAB5D8431AE86569005B99AB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAF4F37B1AE242320012EFF8 /* MainMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				BA94234E1ADDB97A001B39E3 /* DylanMcKee */,
-				BA9423641ADDB97A001B39E3 /* DylanMcKeeTests */,
 				BA94234D1ADDB97A001B39E3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -189,23 +185,6 @@
 				BA3FC4B61AE2B25B000ECA1A /* intro.m4v */,
 				BA9423501ADDB97A001B39E3 /* Info.plist */,
 				BA3FC4C21AE2CBCD000ECA1A /* data.json */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BA9423641ADDB97A001B39E3 /* DylanMcKeeTests */ = {
-			isa = PBXGroup;
-			children = (
-				BA9423671ADDB97A001B39E3 /* DylanMcKeeTests.swift */,
-				BA9423651ADDB97A001B39E3 /* Supporting Files */,
-			);
-			path = DylanMcKeeTests;
-			sourceTree = "<group>";
-		};
-		BA9423651ADDB97A001B39E3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				BA9423661ADDB97A001B39E3 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -341,7 +320,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA9423681ADDB97A001B39E3 /* DylanMcKeeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
