@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class FeatureViewController: UIViewController, UIScrollViewDelegate {
     
@@ -200,6 +201,40 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
         
         // set page control's current page to what we've scrolled to...
         pageControl.currentPage = Int(currentPage)
+    }
+    
+    // Text view delegate to intercept link clicks (so we can handle the custom 'video://name' schema...
+    func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
+        println("clicked " + URL.description)
+        
+        // see if the custom video schema is in use...
+        if URL.description.contains("video://") {
+            // if it's video:// schema, play it
+            let videoFileName = URL.description.stringByReplacingOccurrencesOfString("video://", withString: "", options: nil, range: nil)
+            
+            
+            // play it via our convenience method
+            playVideoWithName(videoFileName)
+            
+            // return false - we're handling this ourselves!
+            return false
+        }
+        
+        // go ahead and open it normally...
+        return true
+    }
+    
+    // a convenience function to play a video with the local file name passed in as a parameter...
+    func playVideoWithName(name :String) {
+        // load the file path in...
+        let videoFilePath = NSBundle.mainBundle().pathForResource(name, ofType: "m4v")
+        let videoPathUrl = NSURL.fileURLWithPath(videoFilePath!)
+        
+        // instantiate a player, passing in the local URL to our video file
+        let videoPlayer = MPMoviePlayerViewController(contentURL: videoPathUrl)
+        
+        // and present the player modally over the view...
+        presentMoviePlayerViewControllerAnimated(videoPlayer)
     }
     
 }
