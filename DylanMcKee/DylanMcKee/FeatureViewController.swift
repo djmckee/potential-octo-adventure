@@ -33,6 +33,9 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         let imageScrollViewHeight:CGFloat = CGFloat(320);
         containerScrollView = UIScrollView(frame: self.view.frame)
         
+        // use white scroll indicators so they can be physically seen...
+        containerScrollView.indicatorStyle = UIScrollViewIndicatorStyle.White
+        
         view.addSubview(containerScrollView)
         
         imageScrollView = UIScrollView(frame: CGRectMake(0, 0, containerScrollView.frame.size.width, imageScrollViewHeight))
@@ -132,7 +135,6 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         // finish up editing
         attributedDescriptionString.endEditing()
         
-        // while there's still link start schema's in the string, keep looping to extract them...
         // while there's still link start schema's in the string, keep looping to extract them...
         while attributedDescriptionString.string.contains(linkStartSchema) {
             // okay, there's a link for us to link up...
