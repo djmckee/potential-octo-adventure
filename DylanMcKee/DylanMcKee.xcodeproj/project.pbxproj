@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA367AA71AE80D2E00BE5582 /* String+Contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA367AA61AE80D2E00BE5582 /* String+Contains.swift */; };
 		BA37ED681AE3B143005C9325 /* ProjectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA37ED671AE3B143005C9325 /* ProjectItem.swift */; };
 		BA37ED6A1AE3C976005C9325 /* FlatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA37ED691AE3C976005C9325 /* FlatLabel.swift */; };
 		BA3FC4B71AE2BB62000ECA1A /* intro.m4v in Resources */ = {isa = PBXBuildFile; fileRef = BA3FC4B61AE2B25B000ECA1A /* intro.m4v */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA367AA61AE80D2E00BE5582 /* String+Contains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Contains.swift"; sourceTree = "<group>"; };
 		BA37ED671AE3B143005C9325 /* ProjectItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectItem.swift; sourceTree = "<group>"; };
 		BA37ED691AE3C976005C9325 /* FlatLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatLabel.swift; sourceTree = "<group>"; };
 		BA3FC4B61AE2B25B000ECA1A /* intro.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = intro.m4v; sourceTree = SOURCE_ROOT; };
@@ -111,6 +113,7 @@
 				BA3FC4BE1AE2C7E4000ECA1A /* FeatureItem.swift */,
 				BA37ED671AE3B143005C9325 /* ProjectItem.swift */,
 				BA3FC4C01AE2CB53000ECA1A /* Data.swift */,
+				BA367AA61AE80D2E00BE5582 /* String+Contains.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				BA3FC4FB1AE310D0000ECA1A /* FeatureViewController.swift in Sources */,
 				BA40F9321AE19B250005C427 /* PulsatingLabel.swift in Sources */,
 				BA9423521ADDB97A001B39E3 /* AppDelegate.swift in Sources */,
+				BA367AA71AE80D2E00BE5582 /* String+Contains.swift in Sources */,
 				BA40F9341AE1C0880005C427 /* FlowerMenuView.swift in Sources */,
 				BA3FC4BF1AE2C7E4000ECA1A /* FeatureItem.swift in Sources */,
 			);

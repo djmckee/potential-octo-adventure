@@ -59,12 +59,114 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
         // set the number of pages to the number of images.
         pageControl.numberOfPages = data.images.count
 
-        // and set description text
-        descriptionTextView.text = data.description
-
         // scroll to initial rect.
         imageScrollView.setContentOffset(CGPoint(x: 0,y: 60), animated: false)
         
+        // extract hyperlinks from the description string...
+        let rawDescriptionString:String = data.description!
+        
+        // initialise a mutable attributed string so we can add links (if necessary) and modify it safely... (declared as a var so we can use NSString's built in replace methods).
+        var attributedDescriptionString:NSMutableAttributedString = NSMutableAttributedString(string: rawDescriptionString)
+        
+        // whilst the string contains HTML-esque link tags (<a href...), loop through them...
+        // define the link start/end of start/end of link tags as constants for future schema changes.
+        let linkStartSchema:String = "<a href=\""
+        let linkStartEnd:String = "\">"
+        let linkEndSchema:String = "</a>"
+        
+        // generically style the entire string...
+        // Style attributed string and links too!
+        // start string editing.
+        attributedDescriptionString.beginEditing()
+        
+        // now style the attributed body text...
+        let entireString = NSMakeRange(0, attributedDescriptionString.length)
+        let bodyFont = UIFont(name: "HelveticaNeue-Light", size: 18)
+        attributedDescriptionString.addAttribute(NSFontAttributeName, value: bodyFont!, range: entireString)
+        
+        attributedDescriptionString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: entireString)
+        
+        
+        // finish up editing
+        attributedDescriptionString.endEditing()
+        
+        // while there's still link start schema's in the string, keep looping to extract them...
+        // while there's still link start schema's in the string, keep looping to extract them...
+        while attributedDescriptionString.string.contains(linkStartSchema) {
+            // okay, there's a link for us to link up...
+            
+            // use a scanner to extract the start of the start tag...
+            var scanner:NSScanner = NSScanner(string: attributedDescriptionString.string)
+            
+            // create a blank placeholder string that we can scan into safely...
+            var scannedString:NSString?
+            
+            // find out where the opening link tag starts.
+            scanner.scanUpToString(linkStartSchema, intoString: &scannedString)
+            let linksStartLocation = scanner.scanLocation
+            
+            // find out where the opening link tag ends.
+            scanner.scanUpToString(linkStartEnd, intoString: &scannedString)
+            let linksEndLocation = scanner.scanLocation
+            
+            // extract the link from the String, removing potential link element schema that's contaminating it...
+            let link = scannedString?.stringByReplacingOccurrencesOfString(linkStartSchema, withString: "")
+            
+            let rangeOfLinkOpeningTag = NSMakeRange(linksStartLocation, (linksEndLocation - linksStartLocation))
+            
+            // scan up to the end of the start tag so that we can get the location
+            scanner.scanUpToString(linkEndSchema, intoString: &scannedString)
+            var linkEndTagLocation = scanner.scanLocation
+            
+            // work out where we need to link within the string (i.e. the actual linked text range), so that we can then apply the link attribute
+            let rangeOfTextToLink = NSMakeRange(rangeOfLinkOpeningTag.location, (linkEndTagLocation - rangeOfLinkOpeningTag.location))
+            
+            // add link in the NSMutableAttributedString...
+            // and link styling within the text (by making them bold(er))
+            let linkFont = UIFont(name: "HelveticaNeue-Medium", size: bodyFont!.pointSize)
+        
+            
+            // start string editing.
+            attributedDescriptionString.beginEditing()
+            
+            // add link to relevant range
+            attributedDescriptionString.addAttribute(NSLinkAttributeName, value: NSURL(string: link!)!, range: rangeOfTextToLink)
+            
+            // make link in link text style
+            attributedDescriptionString.addAttribute(NSFontAttributeName, value: linkFont!, range: rangeOfTextToLink)
+
+            // finish up editing
+            attributedDescriptionString.endEditing()
+            
+            
+            // remove opening link tag...
+            let rangeOfEntireOpeningTag = NSMakeRange(rangeOfLinkOpeningTag.location, (rangeOfLinkOpeningTag.length + count(linkStartEnd)))
+            
+            // replace opening tag with a blank
+            attributedDescriptionString.replaceCharactersInRange(rangeOfEntireOpeningTag, withString: "")
+            
+            // string length has changed - we're gonna need a re-scan to compute the link end tag location again...
+            // reset scanner to a new scanner with the changed string...
+            scanner = NSScanner(string: attributedDescriptionString.string)
+            
+            // scan up to the link end into a string so we can see where it ends in the new changed string
+            scanner.scanUpToString(linkEndSchema, intoString: &scannedString)
+            linkEndTagLocation = scanner.scanLocation
+            
+            // remove end tag by making a range from it's start location + it's length, then replacing this range wiht a blank string
+            let rangeOfEndTag = NSMakeRange(linkEndTagLocation, count(linkEndSchema))
+            
+            // replace with a blank...
+            attributedDescriptionString.replaceCharactersInRange(rangeOfEndTag, withString: "")
+            
+            // now that we've removed the link string within our string, and linked up the attributed string properly, we can safely continue on in the loop knowing that there's no chance of infinity! Carry on looping if possible...
+            
+        }
+
+        // now set our attributed string to be displayed in the description text view, now that we've added any links...
+        descriptionTextView.attributedText = attributedDescriptionString
+        
+
     }
     
     override func viewWillAppear(animated: Bool) {
