@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KNe-ed-Ql3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -145,10 +144,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BoX-hm-XSo" firstAttribute="top" secondItem="DuT-uW-zbZ" secondAttribute="bottom" constant="-64" id="RnU-vk-5sb"/>
-                            <constraint firstItem="BoX-hm-XSo" firstAttribute="leading" secondItem="iaY-W9-Uuj" secondAttribute="leadingMargin" constant="-16" id="eUp-7o-Rk4"/>
-                            <constraint firstAttribute="trailing" secondItem="BoX-hm-XSo" secondAttribute="trailing" id="owB-L2-Z7n"/>
-                            <constraint firstItem="XWY-uO-tTi" firstAttribute="top" secondItem="BoX-hm-XSo" secondAttribute="bottom" id="raZ-vD-cd8"/>
+                            <constraint firstItem="BoX-hm-XSo" firstAttribute="leading" secondItem="iaY-W9-Uuj" secondAttribute="leading" id="BvW-IX-8j2"/>
+                            <constraint firstAttribute="trailing" secondItem="BoX-hm-XSo" secondAttribute="trailing" id="Kg3-qi-AOv"/>
+                            <constraint firstItem="BoX-hm-XSo" firstAttribute="top" secondItem="iaY-W9-Uuj" secondAttribute="top" id="Y7m-c0-EnF"/>
+                            <constraint firstItem="BoX-hm-XSo" firstAttribute="bottom" secondItem="XWY-uO-tTi" secondAttribute="top" id="zVb-5R-iK1"/>
                         </constraints>
                     </view>
                     <connections>
@@ -235,6 +234,6 @@
         <image name="DylanQuayside" width="1391" height="1224"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yEH-Z6-vhX"/>
+        <segue reference="sLK-kN-tcT"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -159,7 +159,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
     
     // flower menu delegate implementation...
     func flowerMenuSectionSelectedWithName(name:String) {
-        println("clicked on " + name)
+        //println("clicked on " + name)
         
         if name == "intro" {
             // play intro video.

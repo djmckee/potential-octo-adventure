@@ -215,8 +215,10 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         let textRect = attributedDescriptionString.boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin
             , context: nil)
         
+        let spacing:CGFloat = CGFloat(40.0);
+        
         // create a suitable rect using the textRect sizes for the descriptionTextView... (with some added padding)
-        descriptionTextView.frame = CGRectMake(0, (imageScrollViewHeight + pageControl.frame.size.height), containerScrollView.frame.size.width, (textRect.size.height + 30))
+        descriptionTextView.frame = CGRectMake(0, (imageScrollViewHeight + pageControl.frame.size.height), containerScrollView.frame.size.width, (textRect.size.height + spacing))
 
         // now set our attributed string to be displayed in the description text view, now that we've added any links...
         descriptionTextView.attributedText = attributedDescriptionString
@@ -225,7 +227,7 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         descriptionTextView.linkTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         // now set our container scroll view's content size to fit the descriptionTextView in properly...
-        containerScrollView.contentSize = CGSizeMake(containerScrollView.frame.size.width, (descriptionTextView.frame.origin.y + descriptionTextView.frame.size.height + 30.0))
+        containerScrollView.contentSize = CGSizeMake(containerScrollView.frame.size.width, (descriptionTextView.frame.origin.y + descriptionTextView.frame.size.height + spacing))
 
     }
     
@@ -268,7 +270,7 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate, UITextViewD
     
     // Text view delegate to intercept link clicks (so we can handle the custom 'video://name' schema...
     func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
-        println("clicked " + URL.description)
+        //println("clicked " + URL.description)
         
         // see if the custom video schema is in use...
         if URL.description.contains("video://") {
