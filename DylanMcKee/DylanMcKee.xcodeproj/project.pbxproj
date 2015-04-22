@@ -36,16 +36,6 @@
 		BAF4F37C1AE242320012EFF8 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF4F37B1AE242320012EFF8 /* MainMenuView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BA9423621ADDB97A001B39E3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BA9423441ADDB97A001B39E3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BA94234B1ADDB97A001B39E3;
-			remoteInfo = DylanMcKee;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		BA367AA61AE80D2E00BE5582 /* String+Contains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Contains.swift"; sourceTree = "<group>"; };
 		BA367AA81AE82D8900BE5582 /* lilypi.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = lilypi.m4v; sourceTree = SOURCE_ROOT; };
@@ -74,20 +64,12 @@
 		BA9423561ADDB97A001B39E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA9423581ADDB97A001B39E3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BA94235B1ADDB97A001B39E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		BA9423611ADDB97A001B39E3 /* DylanMcKeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DylanMcKeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB5D8431AE86569005B99AB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAF4F37B1AE242320012EFF8 /* MainMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		BA9423491ADDB97A001B39E3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BA94235E1ADDB97A001B39E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -160,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				BA94234C1ADDB97A001B39E3 /* DylanMcKee.app */,
-				BA9423611ADDB97A001B39E3 /* DylanMcKeeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,24 +190,6 @@
 			productReference = BA94234C1ADDB97A001B39E3 /* DylanMcKee.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BA9423601ADDB97A001B39E3 /* DylanMcKeeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BA94236E1ADDB97A001B39E3 /* Build configuration list for PBXNativeTarget "DylanMcKeeTests" */;
-			buildPhases = (
-				BA94235D1ADDB97A001B39E3 /* Sources */,
-				BA94235E1ADDB97A001B39E3 /* Frameworks */,
-				BA94235F1ADDB97A001B39E3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BA9423631ADDB97A001B39E3 /* PBXTargetDependency */,
-			);
-			name = DylanMcKeeTests;
-			productName = DylanMcKeeTests;
-			productReference = BA9423611ADDB97A001B39E3 /* DylanMcKeeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -238,10 +201,6 @@
 				TargetAttributes = {
 					BA94234B1ADDB97A001B39E3 = {
 						CreatedOnToolsVersion = 6.3;
-					};
-					BA9423601ADDB97A001B39E3 = {
-						CreatedOnToolsVersion = 6.3;
-						TestTargetID = BA94234B1ADDB97A001B39E3;
 					};
 				};
 			};
@@ -259,7 +218,6 @@
 			projectRoot = "";
 			targets = (
 				BA94234B1ADDB97A001B39E3 /* DylanMcKee */,
-				BA9423601ADDB97A001B39E3 /* DylanMcKeeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,13 +233,6 @@
 				BA94235C1ADDB97A001B39E3 /* LaunchScreen.xib in Resources */,
 				BA3FC4C31AE2CBCD000ECA1A /* data.json in Resources */,
 				BA9423591ADDB97A001B39E3 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BA94235F1ADDB97A001B39E3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,22 +267,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA94235D1ADDB97A001B39E3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BA9423631ADDB97A001B39E3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BA94234B1ADDB97A001B39E3 /* DylanMcKee */;
-			targetProxy = BA9423621ADDB97A001B39E3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BA9423551ADDB97A001B39E3 /* Main.storyboard */ = {
@@ -458,40 +394,6 @@
 			};
 			name = Release;
 		};
-		BA94236F1ADDB97A001B39E3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DylanMcKeeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DylanMcKee.app/DylanMcKee";
-			};
-			name = Debug;
-		};
-		BA9423701ADDB97A001B39E3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DylanMcKeeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DylanMcKee.app/DylanMcKee";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -509,15 +411,6 @@
 			buildConfigurations = (
 				BA94236C1ADDB97A001B39E3 /* Debug */,
 				BA94236D1ADDB97A001B39E3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BA94236E1ADDB97A001B39E3 /* Build configuration list for PBXNativeTarget "DylanMcKeeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BA94236F1ADDB97A001B39E3 /* Debug */,
-				BA9423701ADDB97A001B39E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

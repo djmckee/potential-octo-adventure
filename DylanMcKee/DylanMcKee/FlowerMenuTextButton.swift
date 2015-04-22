@@ -49,7 +49,7 @@ class FlowerMenuTextButton: FlowerMenuRoundedButton {
         // center text
         label.textAlignment = NSTextAlignment.Center
         
-        // give us an almost white (flat off-white) label
+        // give us an almost white (flat off-white) label (not using constant in this case because unlike the border of the button, the text within it should not be transparent - to provide a nice subtle difference of importance)
         label.textColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 1.0)
         
         // set text

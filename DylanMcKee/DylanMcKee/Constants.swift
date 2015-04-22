@@ -19,5 +19,5 @@ class Constants {
     static let bodyFontSize:CGFloat = CGFloat(18.0)
     static let largeLabelSize:CGFloat = CGFloat(50.0)
     static let mediumLabelFontSize:CGFloat = CGFloat(22.0)
-    
+    static let offWhiteBorderColor:UIColor = UIColor(red: 0.97, green: 0.97, blue: 0.97, alpha: 0.9)
 }
