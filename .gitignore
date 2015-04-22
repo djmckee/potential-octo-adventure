@@ -5,6 +5,8 @@ data.json
 *.mp4
 *.mov
 *.m4v
+*.jpg
+*.jpeg
 
 ### Xcode ###
 build/
