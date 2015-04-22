@@ -19,7 +19,7 @@ class PulsatingLabel: UILabel {
         self.textAlignment = NSTextAlignment.Center
         
         // set a nice flat large font
-        self.font = UIFont(name: "HelveticaNeue-Light", size: 22)
+        self.font = UIFont(name: Constants.lightFontName, size: Constants.mediumLabelFontSize)
         
         // set a white font colour
         self.textColor = UIColor.whiteColor()

@@ -33,6 +33,7 @@
 		BA9423591ADDB97A001B39E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9423581ADDB97A001B39E3 /* Images.xcassets */; };
 		BA94235C1ADDB97A001B39E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA94235A1ADDB97A001B39E3 /* LaunchScreen.xib */; };
 		BA9423681ADDB97A001B39E3 /* DylanMcKeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9423671ADDB97A001B39E3 /* DylanMcKeeTests.swift */; };
+		BAB5D8441AE86569005B99AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB5D8431AE86569005B99AB /* Constants.swift */; };
 		BAF4F37C1AE242320012EFF8 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF4F37B1AE242320012EFF8 /* MainMenuView.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		BA9423611ADDB97A001B39E3 /* DylanMcKeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DylanMcKeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9423661ADDB97A001B39E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA9423671ADDB97A001B39E3 /* DylanMcKeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DylanMcKeeTests.swift; sourceTree = "<group>"; };
+		BAB5D8431AE86569005B99AB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAF4F37B1AE242320012EFF8 /* MainMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 				BA37ED671AE3B143005C9325 /* ProjectItem.swift */,
 				BA3FC4C01AE2CB53000ECA1A /* Data.swift */,
 				BA367AA61AE80D2E00BE5582 /* String+Contains.swift */,
+				BAB5D8431AE86569005B99AB /* Constants.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				BA3FC4F91AE30659000ECA1A /* ImageGridViewController.swift in Sources */,
 				BA40F93B1AE1D1940005C427 /* FlowerMenuTextButton.swift in Sources */,
 				BA37ED6A1AE3C976005C9325 /* FlatLabel.swift in Sources */,
+				BAB5D8441AE86569005B99AB /* Constants.swift in Sources */,
 				BA37ED681AE3B143005C9325 /* ProjectItem.swift in Sources */,
 				BA9423541ADDB97A001B39E3 /* MainViewController.swift in Sources */,
 				BA3FC4C11AE2CB53000ECA1A /* Data.swift in Sources */,

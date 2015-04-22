@@ -19,7 +19,7 @@ class FlatLabel: UILabel {
         self.textAlignment = NSTextAlignment.Center
         
         // set a nice flat large font
-        self.font = UIFont(name: "HelveticaNeue-UltraLight", size: 50)
+        self.font = UIFont(name: Constants.superLightFontName, size: Constants.largeLabelSize)
         
         // set a white font colour
         self.textColor = UIColor.whiteColor()

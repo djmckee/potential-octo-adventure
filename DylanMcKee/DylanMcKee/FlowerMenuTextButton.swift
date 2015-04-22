@@ -38,13 +38,13 @@ class FlowerMenuTextButton: FlowerMenuRoundedButton {
         // draw label that's as big as the current frame.
         let label:UILabel = UILabel(frame: bounds)
         
-        let baseFontSize:CGFloat = 19.0
+        let baseFontSize:CGFloat = Constants.bodyFontSize
         
         // calculate font size to scale (multiplying the base font size by the scale factor for this display that we've been passed)
         let fontSize = (baseFontSize * scaleFactor)
         
         // set font
-        label.font = UIFont(name: "HelveticaNeue-Light", size: fontSize)
+        label.font = UIFont(name: Constants.lightFontName, size: fontSize)
         
         // center text
         label.textAlignment = NSTextAlignment.Center

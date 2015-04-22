@@ -126,7 +126,8 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         
         // now style the attributed body text...
         let entireString = NSMakeRange(0, attributedDescriptionString.length)
-        let bodyFont = UIFont(name: "HelveticaNeue-Light", size: 18)
+        let bodyFont = UIFont(name: Constants.lightFontName, size: Constants.bodyFontSize)
+        
         attributedDescriptionString.addAttribute(NSFontAttributeName, value: bodyFont!, range: entireString)
         
         attributedDescriptionString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: entireString)
@@ -167,7 +168,7 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate, UITextViewD
             
             // add link in the NSMutableAttributedString...
             // and link styling within the text (by making them bold(er))
-            let linkFont = UIFont(name: "HelveticaNeue-Medium", size: bodyFont!.pointSize)
+            let linkFont = UIFont(name: Constants.mediumFontName, size: bodyFont!.pointSize)
         
             
             // start string editing.

@@ -44,7 +44,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
         // Style the nav bar so it looks presentable when shown on relevant view controllers....
         self.navigationController?.navigationBar.barTintColor = self.view.backgroundColor
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "HelveticaNeue-Thin", size: 22)!]
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: Constants.navBarFontName, size: Constants.navBarFontSize)!]
         self.navigationController?.navigationBar.titleTextAttributes = titleDict as [NSObject : AnyObject]
         
         
