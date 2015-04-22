@@ -139,7 +139,6 @@
 		BA40F9371AE1D07A0005C427 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BA9423551ADDB97A001B39E3 /* Main.storyboard */,
 				BA9423531ADDB97A001B39E3 /* MainViewController.swift */,
 				BA9423511ADDB97A001B39E3 /* AppDelegate.swift */,
 				BA3FC4F41AE2E642000ECA1A /* ProjectsTableViewController.swift */,
@@ -169,6 +168,7 @@
 		BA94234E1ADDB97A001B39E3 /* DylanMcKee */ = {
 			isa = PBXGroup;
 			children = (
+				BA9423551ADDB97A001B39E3 /* Main.storyboard */,
 				BA40F9351AE1D06C0005C427 /* Model */,
 				BA40F9361AE1D0710005C427 /* View */,
 				BA40F9371AE1D07A0005C427 /* Controller */,

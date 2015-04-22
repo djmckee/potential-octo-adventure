@@ -47,9 +47,7 @@ class ImageGridViewController: UIViewController, UICollectionViewDataSource, UIC
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ImageCollectionViewCell
-        
-        cell.backgroundColor = UIColor.redColor()
-        
+                
         // get the item for the current indexPath...
         let currentItem:FeatureItem = itemsList[indexPath.row]
         
