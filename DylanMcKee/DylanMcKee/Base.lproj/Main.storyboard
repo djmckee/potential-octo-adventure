@@ -32,73 +32,8 @@
                     <view key="view" contentMode="scaleToFill" id="C7S-YL-OyM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68M-hB-WJm">
-                                <rect key="frame" x="0.0" y="64" width="600" height="320"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="XpD-wp-Fk3"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="Wji-bO-2Pt" id="gHe-pG-gsC"/>
-                                </connections>
-                            </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Pei-J1-Gh6">
-                                <rect key="frame" x="0.0" y="384" width="600" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="Tfb-BD-MXq"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="pageControlChanged:" destination="Wji-bO-2Pt" eventType="valueChanged" id="0lr-Zg-Uv8"/>
-                                </connections>
-                            </pageControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lx4-cd-owr">
-                                <rect key="frame" x="0.0" y="414" width="600" height="186"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="18" name="HelveticaNeue-Thin"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Wji-bO-2Pt" id="yuP-8x-n6l"/>
-                                </connections>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="68M-hB-WJm" firstAttribute="top" secondItem="UaB-h0-pIV" secondAttribute="bottom" id="8HI-Sc-j7k"/>
-                            <constraint firstItem="68M-hB-WJm" firstAttribute="top" secondItem="UaB-h0-pIV" secondAttribute="bottom" id="A92-5J-Gah"/>
-                            <constraint firstItem="68M-hB-WJm" firstAttribute="width" secondItem="C7S-YL-OyM" secondAttribute="width" id="K7N-vj-ghh"/>
-                            <constraint firstItem="Lx4-cd-owr" firstAttribute="centerX" secondItem="Pei-J1-Gh6" secondAttribute="centerX" id="Q4I-JB-Skm"/>
-                            <constraint firstItem="Pei-J1-Gh6" firstAttribute="width" secondItem="68M-hB-WJm" secondAttribute="width" id="Q4q-Z8-eNE"/>
-                            <constraint firstItem="Npt-XY-Xqp" firstAttribute="top" secondItem="Lx4-cd-owr" secondAttribute="bottom" id="TPs-CE-HEZ"/>
-                            <constraint firstItem="Pei-J1-Gh6" firstAttribute="top" secondItem="68M-hB-WJm" secondAttribute="bottom" id="cEf-RP-3Za"/>
-                            <constraint firstItem="68M-hB-WJm" firstAttribute="top" secondItem="UaB-h0-pIV" secondAttribute="bottom" id="eDZ-Vf-vVl"/>
-                            <constraint firstItem="68M-hB-WJm" firstAttribute="top" secondItem="UaB-h0-pIV" secondAttribute="bottom" id="klD-yF-Np2"/>
-                            <constraint firstItem="Lx4-cd-owr" firstAttribute="top" secondItem="Pei-J1-Gh6" secondAttribute="bottom" constant="-7" id="ocV-JX-n5U"/>
-                            <constraint firstItem="Pei-J1-Gh6" firstAttribute="centerX" secondItem="68M-hB-WJm" secondAttribute="centerX" id="skl-af-b4V"/>
-                            <constraint firstAttribute="centerX" secondItem="68M-hB-WJm" secondAttribute="centerX" id="ymX-Be-f4P"/>
-                            <constraint firstItem="Lx4-cd-owr" firstAttribute="width" secondItem="Pei-J1-Gh6" secondAttribute="width" id="zde-S0-cqX"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="eDZ-Vf-vVl"/>
-                                <exclude reference="klD-yF-Np2"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <connections>
-                        <outlet property="descriptionTextView" destination="Lx4-cd-owr" id="ThJ-pL-aQT"/>
-                        <outlet property="imageScrollView" destination="68M-hB-WJm" id="79q-Vn-YF2"/>
-                        <outlet property="pageControl" destination="Pei-J1-Gh6" id="4nS-qF-Wbv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bp6-4E-lcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -300,6 +235,6 @@
         <image name="DylanQuayside" width="1391" height="1224"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sLK-kN-tcT"/>
+        <segue reference="yEH-Z6-vhX"/>
     </inferredMetricsTieBreakers>
 </document>

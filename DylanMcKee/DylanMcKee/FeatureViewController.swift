@@ -9,22 +9,63 @@
 import UIKit
 import MediaPlayer
 
-class FeatureViewController: UIViewController, UIScrollViewDelegate {
+class FeatureViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate {
     
     // a placeholder FeatureItem that the data will be loaded in from and displayed in this ViewController... a public variable so it can be set from other view controller's prepareForSegue methods.
     var data:FeatureItem!
     
+    // a scroll view that allows vertical scrolling and contains everything.
+    var containerScrollView:UIScrollView!
+    
     // a scroll view to hold our many images
-    @IBOutlet weak var imageScrollView:UIScrollView!
+    var imageScrollView:UIScrollView!
     
     // page control component
-    @IBOutlet weak var pageControl:UIPageControl!
+    var pageControl:UIPageControl!
     
     // a textview to hold the description
-    @IBOutlet weak var descriptionTextView:UITextView!
+    var descriptionTextView:UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // This view controller requires a text view with dynamic height inside of a scrollview, and autolayout doesn't quite cut it for dynamic content - so I'm drawing views programatically in code instead.
+        let imageScrollViewHeight:CGFloat = CGFloat(320);
+        containerScrollView = UIScrollView(frame: self.view.frame)
+        
+        view.addSubview(containerScrollView)
+        
+        imageScrollView = UIScrollView(frame: CGRectMake(0, 0, containerScrollView.frame.size.width, imageScrollViewHeight))
+        imageScrollView.delegate = self
+        imageScrollView.pagingEnabled = true
+        imageScrollView.showsHorizontalScrollIndicator = false
+        imageScrollView.showsVerticalScrollIndicator = false
+        
+        containerScrollView.addSubview(imageScrollView)
+        
+        pageControl = UIPageControl(frame: CGRectMake(0, imageScrollViewHeight, containerScrollView.frame.size.width, 37))
+        
+        // add value changed callback!
+        pageControl.addTarget(self, action: Selector("pageControlChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+        containerScrollView.addSubview(pageControl)
+        
+        descriptionTextView = UITextView()
+        
+        // don't let people edit!
+        descriptionTextView.editable = false
+        
+        //set colours
+        descriptionTextView.backgroundColor = UIColor.clearColor()
+        descriptionTextView.textColor = UIColor.whiteColor()
+        
+        // don't let people scroll - it's going inside of a scrollview, this would cause serious issues.
+        descriptionTextView.scrollEnabled = false
+        
+        // set delegate to self to handle link clicks.
+        descriptionTextView.delegate = self
+        
+        containerScrollView.addSubview(descriptionTextView)
         
         // set the title to the FeatureItem's title
         self.title = data.title
@@ -61,7 +102,7 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
         pageControl.numberOfPages = data.images.count
 
         // scroll to initial rect.
-        imageScrollView.setContentOffset(CGPoint(x: 0,y: 60), animated: false)
+        imageScrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: false)
         
         // extract hyperlinks from the description string...
         let rawDescriptionString:String = data.description!
@@ -163,10 +204,23 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
             // now that we've removed the link string within our string, and linked up the attributed string properly, we can safely continue on in the loop knowing that there's no chance of infinity! Carry on looping if possible...
             
         }
+        
+        // calculate descriptionTextView size and set its frame based upon the string length!
+        // make max size have a width of the current view minus a little padding, and a pretty much infinite-ish height.
+        let maxSize = CGSizeMake((containerScrollView.frame.size.width - 20), 90000.0)
+        
+        // calculate based upon max size and upon the text view's font setup
+        let textRect = attributedDescriptionString.boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin
+            , context: nil)
+        
+        // create a suitable rect using the textRect sizes for the descriptionTextView... (with some added padding)
+        descriptionTextView.frame = CGRectMake(0, (imageScrollViewHeight + pageControl.frame.size.height), containerScrollView.frame.size.width, (textRect.size.height + 30))
 
         // now set our attributed string to be displayed in the description text view, now that we've added any links...
         descriptionTextView.attributedText = attributedDescriptionString
         
+        // now set our container scroll view's content size to fit the descriptionTextView in properly...
+        containerScrollView.contentSize = CGSizeMake(containerScrollView.frame.size.width, (descriptionTextView.frame.origin.y + descriptionTextView.frame.size.height + 30.0))
 
     }
     
@@ -183,8 +237,8 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // Page control callback
-    @IBAction func pageControlChanged(sender: AnyObject) -> () {
+    // Page control value changed
+    func pageControlChanged(sender: AnyObject) -> () {
         // calculate the scroll position by multiplying current page number by the width of 1 scroll piece...
         let scrollPosition = (CGFloat(pageControl.currentPage) * (self.view.frame.size.width))
         
@@ -195,6 +249,10 @@ class FeatureViewController: UIViewController, UIScrollViewDelegate {
     
     // Scroll view delegate
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) -> () {
+        // if it's not the image scroll view, return, we're not interested.
+        if scrollView != imageScrollView {
+            return;
+        }
         
         // round down to get the current page
         let currentPage = round(scrollView.contentOffset.x / scrollView.frame.size.width)
