@@ -173,7 +173,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HQb-KZ-5Os" id="vG8-4X-d8v">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MK1-eg-TAY">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MK1-eg-TAY">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who Can I Vote For" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="23h-VT-uBb">
@@ -234,6 +234,6 @@
         <image name="DylanQuayside" width="1391" height="1224"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sLK-kN-tcT"/>
+        <segue reference="nJy-Hv-DVk"/>
     </inferredMetricsTieBreakers>
 </document>
