@@ -140,7 +140,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
             self.instructionalLabel.alpha = 1.0
         })
         
-        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("hideIntroLabel"), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: Selector("hideIntroLabel"), userInfo: nil, repeats: false)
 
     }
     
