@@ -35,7 +35,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
     // a boolean to indicate that the scrollView has been setup (to stop permenant affixing to the first pane due to delegate values being called before programatic scrolling has taken place properly)
     private var initialScrollSetup:Bool = false
     
-    // a placeholder to hold the type of view controller being pushed next, so we can prepare proprely in prepareForSegue
+    // a placeholder to hold the type of view controller being pushed next, so we can prepare properly in prepareForSegue
     private var nextViewControllerTypeToPush:ViewControllerTypes?
 
     override func viewDidLoad() {
