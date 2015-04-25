@@ -125,7 +125,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
     }
     
     
-    // a function to show the instruction label for 5 seconds then fade it out.
+    // a function to show the instruction label for a few seconds then fade it out.
     private func showInstructionalLabel() {
         
         // sort out the instructional label first...
@@ -140,7 +140,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, FlowerMenuDele
             self.instructionalLabel.alpha = 1.0
         })
         
-        NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: Selector("hideIntroLabel"), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(3.5, target: self, selector: Selector("hideIntroLabel"), userInfo: nil, repeats: false)
 
     }
     
