@@ -45,7 +45,7 @@ class InitialView: UIView {
         
         slideToBeginLabel = PulsatingLabel(frame: slideToBeginRect)
         
-        slideToBeginLabel.text = "slide to begin >"
+        slideToBeginLabel.text = "> slide to begin"
         
         // hide the label for an initial 2 seconds so other labels can load first...
         slideToBeginLabel.hidden = true

@@ -27,8 +27,8 @@ class PulsatingLabel: UILabel {
         self.alpha = 0.5
         
         // begin animating ourselves, constantly.
-        UIView.animateKeyframesWithDuration(2.0, delay: 3.0, options: (UIViewKeyframeAnimationOptions.Repeat | UIViewKeyframeAnimationOptions.Autoreverse), animations: { () -> Void in
-            // fade out (then fade back in on completion.
+        UIView.animateKeyframesWithDuration(1.5, delay: 2.0, options: (UIViewKeyframeAnimationOptions.Repeat | UIViewKeyframeAnimationOptions.Autoreverse), animations: { () -> Void in
+            // fade in (remember this will be reversed thanks to the view animation options to turn into a fade out)
             self.alpha = 1.0
             }, completion: nil)
         
