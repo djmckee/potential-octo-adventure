@@ -97,7 +97,6 @@
 				BA37ED671AE3B143005C9325 /* ProjectItem.swift */,
 				BA3FC4C01AE2CB53000ECA1A /* Data.swift */,
 				BA367AA61AE80D2E00BE5582 /* String+Contains.swift */,
-				BAB5D8431AE86569005B99AB /* Constants.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -109,6 +108,7 @@
 				BA40F92D1AE19AD20005C427 /* InitialView.swift */,
 				BAF4F37B1AE242320012EFF8 /* MainMenuView.swift */,
 				BA40F9311AE19B250005C427 /* PulsatingLabel.swift */,
+				BAB5D8431AE86569005B99AB /* Constants.swift */,
 				BA3FC4FC1AE32BEC000ECA1A /* FlowerMenu View */,
 				BA3FC4BC1AE2C3E6000ECA1A /* ImageCollectionViewCell.swift */,
 				BA3FC4F21AE2E077000ECA1A /* GridCollectionViewLayout.swift */,

@@ -231,7 +231,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DylanQuayside" width="1391" height="1224"/>
+        <image name="DylanQuayside" width="1000" height="880"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nJy-Hv-DVk"/>
